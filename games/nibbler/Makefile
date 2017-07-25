@@ -10,7 +10,7 @@ EMULATOR_DIR	=	${ROOT}emulator/
 CC		=	g++ -g
 RM		=	rm -rf
 NAME		=	../lib_nibbler.so
-CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC)
+CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) -g
 LFLAGS		=	-fpic -shared
 INC		=	-I${EMULATOR_DIR}Game/			\
 			-I${EMULATOR_DIR}Graphic/			\

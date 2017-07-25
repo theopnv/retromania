@@ -4,7 +4,7 @@
 
 Retromania is a set of 80's games and (modern) graphical libraries written in C++. It comes with a modular emulator, that allow you to play old games, because old games are the best.
 
-It has a few features for now, but will keep growing with time. The evolution steps are listed on this [Trello document](https://trello.com/b/lKQjqDIp/retromania).
+It already has a few features for now, and will keep growing with time. The evolution steps are listed on this [Trello document](https://trello.com/b/lKQjqDIp/retromania).
 
 - Games :
 	- Nibbler (Snake)

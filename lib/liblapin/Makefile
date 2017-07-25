@@ -10,7 +10,7 @@ EMULATOR_DIR	=	${ROOT}emulator/
 CC		=	g++
 RM		=	rm -rf
 NAME		=	../lib_liblapin.so
-CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC)
+CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) -g
 LFLAGS		=	-fPIC -shared
 INC		=	-I${EMULATOR_DIR}Graphic/			\
 			-I${EMULATOR_DIR}				\

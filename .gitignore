@@ -1,4 +1,6 @@
 retro-station
+lib/lib_*
+games/lib_*
 
 .vscode
 *.o
