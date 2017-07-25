@@ -1,0 +1,9 @@
+WALL
+	0:games/nibbler/ressources/sprites/rouge.png
+	1:RED
+SNAKE
+	0:games/nibbler/ressources/sprites/melanchon.png
+	1:RED
+FRUIT
+	0:games/nibbler/ressources/sprites/lepen.png
+	1:BLUE

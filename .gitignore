@@ -1,0 +1,5 @@
+retro-station
+
+.vscode
+*.o
+*.vgcore
