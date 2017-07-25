@@ -1,7 +1,7 @@
 Standards
 ----------------------
 
-To separate the logic of our game (IGame) from their display (IGraphic), we needed a set of protocols. See the `core/Standards.hpp` to see how it's implemented.
+To separate the logic of our game (IGame) from their display (IGraphic), we needed a set of protocols. See the [Standards file](../emulator/Standards.hpp) to see how it's implemented.
 
 - Input (keyboard): InputType
 - Color: ColorType

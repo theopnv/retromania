@@ -1,7 +1,7 @@
 IGame
 ----------------------
 
-Your game library must inherit from the IGame interface. The following functions will be called by the emulator.
+Your game library must inherit from the [IGame interface](../emulator/Game/IGame.hpp). The following functions will be called by the emulator.
 
 
     virtual std::string const	&getName() const = 0;
@@ -10,7 +10,7 @@ Returns the game name.
 
     virtual void		setInput(InputType) = 0;
 
-Takes an input from the InputType enum (cf. `Standard.md`), and stock it in an internal variable.
+Takes an input from the InputType enum (cf. [Standards file](../emulator/Standards.hpp)), and stock it in an internal variable.
 
     virtual conf_t const	*getConfig() const = 0;
 
@@ -22,11 +22,11 @@ Returns an int representing the score.
 
     virtual map_t const		*getMap() const = 0;
 
-Returns the board game, actualised at each turn. Cf. `Standard.md` to know what is a map_t.
+Returns the board game, actualised at each turn. Cf. [Standards file](../emulator/Standards.hpp) to know what is a map_t.
 
     virtual StateType		getState() const = 0;
 
-Returns the state of the game (cf `Standard.md`).
+Returns the state of the game (cf. [Standards file](../emulator/Standards.hpp)).
 
     virtual start() = 0;
 

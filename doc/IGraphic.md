@@ -1,7 +1,7 @@
 IGraphic
 ----------------------
 
-Your graphic library must inherit from the IGame interface. The following functions will be called by the emulator.
+Your graphic library must inherit from the [IGraphic interface](../emulator/Graphic/IGraphic.hpp). The following functions will be called by the emulator.
 
     virtual std::string const	&getName() const = 0;
 
@@ -9,7 +9,7 @@ Returns the name of the graphical library
 
     virtual InputType		getInput() const = 0;
 
-Returns the input, taken from the InputType enumeration (cf `Standard.md`).
+Returns the input, taken from the InputType enumeration (cf [Standards file](../emulator/Standards.hpp)).
 
     virtual void		createWindow() = 0;
 
