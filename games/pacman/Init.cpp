@@ -27,7 +27,7 @@ void 			Pacman::initCharacter()
   ACharacter::pos_t	pos;
   uint16_t		startPos;
 
-  startPos = _map->width * ((_map->height / 2) + 2) + (_map->width / 2) - 2;
+  startPos = _map.width * ((_map.height / 2) + 2) + (_map.width / 2) - 2;
   pos.push_back(startPos);
   _hero = new ACharacter(pos, PACMAN, "Pacman");
   _hero->setDirection(ACharacter::RIGHT);
@@ -43,8 +43,8 @@ bool 			Pacman::isNotGhostHouse(const int i)
     if (i >= topLeftHouse && i <= topRightHouse) {
       return false;
     }
-    topLeftHouse += _map->width;
-    topRightHouse += _map->width;
+    topLeftHouse += _map.width;
+    topRightHouse += _map.width;
   }
   return true;
 }
@@ -55,8 +55,8 @@ void 			Pacman::initGomsTab()
   _totalGoms = 0;
   _goms.clear();
   _aMap.clear();	// Map for AStar
-  for (size_t i = 0; i < _map->tiles.size(); i++) {
-    if (_map->tiles[i] == EMPTY && isNotGhostHouse(i)) {
+  for (size_t i = 0; i < _map.tiles.size(); i++) {
+    if (_map.tiles[i] == EMPTY && isNotGhostHouse(i)) {
       _goms.push_back(true);
       _aMap.push_back(true);	// Map for AStar
       ++_totalGoms;

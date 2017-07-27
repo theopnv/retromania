@@ -22,9 +22,6 @@ Pacman::Pacman(uint16_t const width, uint16_t const height)
 {
   initTileIDTab();
   setConfig();
-  loadMap(_MAP_PATH);	// Keep all these functions in construct for Protocol
-  initCharacter();
-  initDirsTab();
 }
 
 Pacman::~Pacman()
@@ -36,7 +33,7 @@ void	Pacman::play()
   if (_state == TRANSFORM) {
     _state = ON;
   }
-  _map->tiles.at(_hero->getPositionAt(0)) = EMPTY;
+  _map.tiles.at(_hero->getPositionAt(0)) = EMPTY;
   changeConfig();
   chooseNextDir();
   setDirection();
@@ -49,7 +46,7 @@ void	Pacman::play()
 
 void 	Pacman::start()
 {
-  _score->setValue(0);
+  _score.setValue(0);
   _state = ON;
   loadMap(_MAP_PATH);
   initCharacter();
@@ -70,14 +67,14 @@ void 	Pacman::stop()
 
 void 	Pacman::renderHero()
 {
-  _map->tiles.at(_hero->getPositionAt(0)) = PACMAN;
+  _map.tiles.at(_hero->getPositionAt(0)) = PACMAN;
 }
 
 void 	Pacman::renderGom()
 {
-  for (int i = 0; i < _map->width * _map->height; i++) {
+  for (int i = 0; i < _map.width * _map.height; i++) {
     if (_goms[i]) {
-      _map->tiles.at(i) = GOM;
+      _map.tiles.at(i) = GOM;
     }
   }
 }
@@ -85,16 +82,16 @@ void 	Pacman::renderGom()
 void 		Pacman::renderGhost(AGhost *ghost)
 {
   if (ghost->getId() == BLINKY) {
-    _map->tiles.at(ghost->getPositionAt(0)) = BLINKY;
+    _map.tiles.at(ghost->getPositionAt(0)) = BLINKY;
   }
   if (ghost->getId() == INKY) {
-    _map->tiles.at(ghost->getPositionAt(0)) = INKY;
+    _map.tiles.at(ghost->getPositionAt(0)) = INKY;
   }
   if (ghost->getId() == PINKY) {
-    _map->tiles.at(ghost->getPositionAt(0)) = PINKY;
+    _map.tiles.at(ghost->getPositionAt(0)) = PINKY;
   }
   if (ghost->getId() == CLYDE) {
-    _map->tiles.at(ghost->getPositionAt(0)) = CLYDE;
+    _map.tiles.at(ghost->getPositionAt(0)) = CLYDE;
   }
 }
 }

@@ -25,11 +25,11 @@ class			AGhost : public ACharacter
     int			findValidNear(const int);
   public:
     			AGhost(const pos_t &,
-			       const map_t *,
+			       const map_t &,
 			       const int,
        			       const std::string &);
     virtual		~AGhost();
-    void 		setAMap(map_t const *);
+    void 		setAMap(map_t const &);
     int			getTarget() const;
     path_t const	&getPath() const;
     void 		setPacTarget(const int);

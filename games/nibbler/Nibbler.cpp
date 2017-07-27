@@ -26,7 +26,7 @@ namespace retromania
     ACharacter::pos_t	pos;
     uint16_t		center;
 
-    center = (_map->width * (_map->height / 2)) + _map->width / 2;
+    center = (_map.width * (_map.height / 2)) + _map.width / 2;
     pos.push_back(center);
     pos.push_back(center - 1);
     pos.push_back(center - 2);
@@ -40,8 +40,6 @@ namespace retromania
   {
     initTileIDTab();
     setConfig();
-    loadMap(_MAP_PATH);
-    initCharacter();	// Keep these functions in construct for Protocol
     _lastDirection = ACharacter::RIGHT;
   }
 
@@ -100,7 +98,7 @@ namespace retromania
     ACharacter::pos_t tmp = _hero->getPosition();
 
     for (auto& it : tmp) {
-      _map->tiles.at(it) = SNAKE;
+      _map.tiles.at(it) = SNAKE;
     }
   }
 
@@ -109,7 +107,7 @@ namespace retromania
     ACharacter::pos_t tmp = _hero->getPosition();
 
     for (auto& it : tmp)
-      _map->tiles.at(it) = EMPTY;
+      _map.tiles.at(it) = EMPTY;
   }
 
   void Nibbler::setDirection()
@@ -160,7 +158,7 @@ namespace retromania
 
   bool Nibbler::checkWall()
   {
-    return _map->tiles.at(_hero->getPositionAt(0)) == WALL;
+    return _map.tiles.at(_hero->getPositionAt(0)) == WALL;
   }
 
   bool Nibbler::checkHit()
@@ -195,7 +193,7 @@ namespace retromania
   void Nibbler::spawnFruit()
   {
     int fruitPos;
-    int randMax = _map->height * _map->width;
+    int randMax = _map.height * _map.width;
 
     std::mt19937 rng;
     rng.seed(std::random_device()());
@@ -203,16 +201,16 @@ namespace retromania
 
     do {
 	fruitPos = (int) randomizator(rng);
-      } while (_map->tiles.at(fruitPos) != EMPTY);
-    _map->tiles.at(fruitPos) = FRUIT;
+      } while (_map.tiles.at(fruitPos) != EMPTY);
+    _map.tiles.at(fruitPos) = FRUIT;
     _fruits++;
   }
 
   void Nibbler::eatFruit()
   {
-    if (_map->tiles.at(_hero->getPositionAt(0)) == FRUIT)
+    if (_map.tiles.at(_hero->getPositionAt(0)) == FRUIT)
       {
-	_score->setValue(_score->getValue() + 10);
+	_score.setValue(_score.getValue() + 10);
 	_fruits--;
 	_justEaten = true;
 	_queue = _hero->getPositionAt(_hero->getPosition().size() - 1);
@@ -233,7 +231,7 @@ namespace retromania
   void Nibbler::checkFruits()
   {
     _fruits = 0;
-    for (auto& it : _map->tiles)
+    for (auto& it : _map.tiles)
       {
 	if (it == FRUIT)
 	  _fruits++;

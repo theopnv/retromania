@@ -11,15 +11,15 @@ namespace retromania
 void Nibbler::initFruits()
 {
   int fruitPos;
-  int randMax = _map->height * _map->width;
+  int randMax = _map.height * _map.width;
   std::mt19937 rng;
   rng.seed(std::random_device()());
   std::uniform_int_distribution<std::mt19937::result_type> randomizator(0, (unsigned long) randMax - 1);
   _fruits = 0;
   do
     fruitPos = (int) randomizator(rng);
-  while (_map->tiles.at(fruitPos) != EMPTY);
-  _map->tiles.at(fruitPos) = FRUIT;
+  while (_map.tiles.at(fruitPos) != EMPTY);
+  _map.tiles.at(fruitPos) = FRUIT;
   _fruits++;
 };
 

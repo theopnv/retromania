@@ -10,7 +10,7 @@ class			Pinky : public AGhost
 {
   public:
 			Pinky(const pos_t &pos,
-			      const map_t *map,
+			      const map_t &map,
 			      const int id = PINKY,
 			      const std::string &name = "Pinky");
 			~Pinky();

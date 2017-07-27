@@ -22,8 +22,8 @@ class				AGame : public IGame
     conf_t			*_config;
     std::vector<conf_t*> _vconfigs;
     int				_current_config;
-    map_t			*_map;
-    Score			*_score;
+    map_t			_map;
+    Score			_score;
     ACharacter			*_hero;
     StateType			_state;
 
@@ -41,8 +41,8 @@ class				AGame : public IGame
 				AGame(uint16_t const, uint16_t const);
 				~AGame();
     virtual conf_t const	*getConfig() const;
-    virtual Score const		*getScore() const;
-    virtual map_t const		*getMap() const;
+    virtual Score const		&getScore() const;
+    virtual map_t const		&getMap() const;
     virtual StateType		getState() const;
     virtual void		goUp();
     virtual void		goDown();

@@ -7,7 +7,7 @@ namespace retromania
 int	AGhost::_blinkyPos = -1;
 
 AGhost::AGhost(const pos_t &pos,
-	       const map_t *map,
+	       const map_t &map,
 	       const int id,
 	       const std::string &name)
 		: ACharacter(pos, id, name)
@@ -50,13 +50,13 @@ void 		AGhost::setPacTarget(const int pacPos)
   _target = pacPos;
 }
 
-void 		AGhost::setAMap(map_t const *map)
+void 		AGhost::setAMap(map_t const &map)
 {
-  for (auto &it : map->tiles) {
+  for (auto &it : map.tiles) {
     _aMap.map.push_back(it > 0 ? true : false);
   }
-  _aMap.width = map->width;
-  _aMap.height = map->height;
+  _aMap.width = map.width;
+  _aMap.height = map.height;
 }
 
 bool		AGhost::isAtCrossway()

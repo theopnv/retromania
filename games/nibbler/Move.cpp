@@ -10,7 +10,7 @@ void 		Nibbler::moveUp()
   for (size_t i = pos.size() - 1; i > 0; --i) {
     pos[i] = pos[i - 1];
   }
-  pos[0] -= _map->width;
+  pos[0] -= _map.width;
   _hero->setPosition(pos);
 }
 
@@ -21,7 +21,7 @@ void 		Nibbler::moveDown()
   for (size_t i = pos.size() - 1; i > 0; --i) {
     pos[i] = pos[i - 1];
   }
-  pos[0] += _map->width;
+  pos[0] += _map.width;
   _hero->setPosition(pos);
 }
 
