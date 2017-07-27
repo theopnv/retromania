@@ -47,8 +47,8 @@ class			LibLapin : public AGraphic
     ** Inherited methods from IGraphic
     */
     virtual InputType	getInput() const;
-    virtual std::string const	&getName() const;
-    virtual void 	setConfig(conf_t const *);
+    virtual void 	setConfig(const Sptr_t<conf_t> config);
+    virtual const std::string&	getName() const;
 
     virtual void	createWindow();
     virtual void 	quitWindow();
@@ -59,7 +59,7 @@ class			LibLapin : public AGraphic
 				 ColorType const);
     virtual void 	display(Sptr_t<map_t> const map = nullptr);
 
-    inputTab_t		&getInputTab();
+    inputTab_t&		getInputTab();
     void 		setInput(InputType);
   private:
 

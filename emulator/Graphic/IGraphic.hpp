@@ -17,7 +17,7 @@ class			IGraphic
     virtual InputType	getInput() const = 0;
     virtual void 	createWindow() = 0;
     virtual void 	quitWindow() = 0;
-    virtual void	setConfig(conf_t const *config) = 0;
+    virtual void	setConfig(const Sptr_t<conf_t> config) = 0;
     virtual void	blitText(std::string const &text,
 				 retromania::pos_t const &pos,
 				 int const fontSize,

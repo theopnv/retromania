@@ -13,14 +13,14 @@ class				IGame
   public:
 
     virtual			~IGame() {}
-    virtual std::string	const	&getName() const = 0;
+    virtual const std::string&	getName() const = 0;
     virtual void		setInput(InputType) = 0;
-    virtual conf_t const 	*getConfig() const = 0;
-    virtual Score const		&getScore() const = 0;
+    virtual const Score&	getScore() const = 0;
     virtual StateType		getState() const = 0;
     virtual void		start() = 0;
     virtual void		stop() = 0;
-    virtual Sptr_t<map_t> const		getMap() const = 0;
+    virtual const Sptr_t<map_t>		getMap() const = 0;
+    virtual const Sptr_t<conf_t>	getConfig() const = 0;
 
     virtual void		goUp() = 0;
     virtual void		goDown() = 0;
@@ -29,5 +29,7 @@ class				IGame
     virtual void		goForward() = 0;
     virtual void		play() = 0;
 };
+
 }
+
 #endif				/* !IGAME_H */

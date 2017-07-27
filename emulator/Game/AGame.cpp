@@ -18,42 +18,42 @@ AGame::~AGame()
   delete _hero;
 }
 
-uint16_t		AGame::getI(uint16_t const y, uint16_t const x) const
+uint16_t AGame::getI(uint16_t const y, uint16_t const x) const
 {
   return (y * _map->width + x);
 }
 
-uint16_t		AGame::getY(uint16_t const i) const
+uint16_t AGame::getY(uint16_t const i) const
 {
   return (i / _map->width);
 }
 
-uint16_t		AGame::getX(uint16_t const i) const
+uint16_t AGame::getX(uint16_t const i) const
 {
   return (i % _map->width);
 }
 
-conf_t const		*AGame::getConfig() const
+const Sptr_t<conf_t> AGame::getConfig() const
 {
   return _config;
 }
 
-Score const		&AGame::getScore() const
+const Score& AGame::getScore() const
 {
   return _score;
 }
 
-Sptr_t<map_t> const	AGame::getMap() const
+const Sptr_t<map_t> AGame::getMap() const
 {
   return _map;
 }
 
-StateType		AGame::getState() const
+StateType AGame::getState() const
 {
   return _state;
 }
 
-void 			AGame::loadMap(std::string const &path)
+void AGame::loadMap(std::string const &path)
 {
   std::ifstream		f;
   std::string		line;

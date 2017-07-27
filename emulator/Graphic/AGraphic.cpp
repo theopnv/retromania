@@ -14,7 +14,7 @@ AGraphic::~AGraphic()
 {
 }
 
-void 		AGraphic::setConfig(conf_t const *config)
+void 		AGraphic::setConfig(const Sptr_t<conf_t> config)
 {
   _config = config;
 }

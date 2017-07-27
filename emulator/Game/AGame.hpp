@@ -19,8 +19,8 @@ class				AGame : public IGame
 
     tileIDTab_t			_tileIDs;
     InputType			_command;
-    conf_t			*_config;
-    std::vector<conf_t*> _vconfigs;
+    Sptr_t<conf_t>		_config;
+    std::vector<Sptr_t<conf_t>> _vconfigs;
     int				_current_config;
     Sptr_t<map_t>		_map;
     Score			_score;
@@ -40,15 +40,15 @@ class				AGame : public IGame
   public:
 				AGame(uint16_t const, uint16_t const);
 				~AGame();
-    virtual conf_t const	*getConfig() const;
-    virtual Score const		&getScore() const;
+    virtual const Score&	getScore() const;
     virtual StateType		getState() const;
     virtual void		goUp();
     virtual void		goDown();
     virtual void		goLeft();
     virtual void		goRight();
     virtual void 		goForward();
-    virtual Sptr_t<map_t> const		getMap() const;
+    virtual const Sptr_t<map_t> 	getMap() const;
+    virtual const Sptr_t<conf_t>	getConfig() const;
 };
 }
 #endif				/* !AGAME_H */
