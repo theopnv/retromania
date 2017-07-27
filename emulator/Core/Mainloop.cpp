@@ -4,7 +4,7 @@
 namespace retromania
 {
 
-void 		Emulator::options()
+void Emulator::options()
 {
   /*
   ** Keys :
@@ -14,7 +14,7 @@ void 		Emulator::options()
   ** 8. restart the game	9. back to menu
   */
 
-  aFp				fp;
+  aFp	fp;
 
   if (IS_MENU_KEY(_input)) {
     fp = _menuTab[_input];
@@ -22,7 +22,7 @@ void 		Emulator::options()
   }
 }
 
-void		Emulator::whereIsCursor(int const nbElem)
+void Emulator::whereIsCursor(int const nbElem)
 {
   if (_input == UP) {
     --_cursor;
@@ -38,7 +38,7 @@ void		Emulator::whereIsCursor(int const nbElem)
   }
 }
 
-void 			Emulator::chooseLib()
+void Emulator::chooseLib()
 {
   if (_input == ENTER) {
     if ((size_t)_cursor < _games.size()) {
@@ -50,7 +50,7 @@ void 			Emulator::chooseLib()
   }
 }
 
-void			Emulator::mainloop()
+void Emulator::mainloop()
 {
   while (!_leaveEmulator) {
     _input = _currGraphic->getInput();
@@ -75,9 +75,9 @@ void			Emulator::mainloop()
   }
 }
 
-void 			Emulator::saveScore()
+void Emulator::saveScore()
 {
-  int			val;
+  int	val;
 
   for (auto it : _scoreTab) {
     if (it.first == _currGame->getName()

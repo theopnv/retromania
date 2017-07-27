@@ -3,7 +3,6 @@
 #include <thread>
 #include <random>
 #include <cstring>
-#include <memory>
 #include "Nibbler.hpp"
 
 namespace retromania
@@ -48,8 +47,6 @@ namespace retromania
 
   Nibbler::~Nibbler()
   {
-    if (_config)
-      delete _config;
   }
 
   void 			Nibbler::initTileIDTab()
@@ -96,18 +93,15 @@ namespace retromania
   {
     _state = OFF;
     _fruits = 0;
-    if (_hero)
-      delete _hero;
   }
 
   void Nibbler::renderHero()
   {
     ACharacter::pos_t tmp = _hero->getPosition();
 
-    for (auto& it : tmp)
-      {
-	_map->tiles.at(it) = SNAKE;
-      }
+    for (auto& it : tmp) {
+      _map->tiles.at(it) = SNAKE;
+    }
   }
 
   void Nibbler::cleanSnake()

@@ -15,47 +15,47 @@ ACharacter::~ACharacter()
 {
 }
 
-void 		ACharacter::setId(const int id)
+void ACharacter::setId(const int id)
 {
   _id = id;
 }
 
-void		ACharacter::setName(const std::string &name)
+void ACharacter::setName(const std::string &name)
 {
   _name = name;
 }
 
-void		ACharacter::setPosition(const pos_t pos)
+void ACharacter::setPosition(const pos_t pos)
 {
   _pos = pos;
 }
 
-void		ACharacter::setDirection(const dir_t &dir)
+void ACharacter::setDirection(const dir_t &dir)
 {
   _dir = dir;
 }
 
-int		ACharacter::getId() const
+int ACharacter::getId() const
 {
   return _id;
 }
 
-std::string const &	ACharacter::getName() const
+std::string const & ACharacter::getName() const
 {
   return _name;
 }
 
-ACharacter::pos_t		ACharacter::getPosition() const
+ACharacter::pos_t ACharacter::getPosition() const
 {
   return _pos;
 }
 
-int		ACharacter::getPositionAt(const int i) const
+int ACharacter::getPositionAt(const int i) const
 {
-  return _pos[i];
+  return _pos.at(i);
 }
 
-ACharacter::dir_t	ACharacter::getDirection() const
+ACharacter::dir_t ACharacter::getDirection() const
 {
   return _dir;
 }

@@ -1,7 +1,7 @@
 #ifndef				IGAME_H
 # define			IGAME_H
 
-# include			"IScore.hpp"
+# include			"Score.hpp"
 # include			"IGraphic.hpp"
 # include			"Standards.hpp"
 
@@ -16,7 +16,7 @@ class				IGame
     virtual std::string	const	&getName() const = 0;
     virtual void		setInput(InputType) = 0;
     virtual conf_t const 	*getConfig() const = 0;
-    virtual IScore const	*getScore() const = 0;
+    virtual Score const		*getScore() const = 0;
     virtual map_t const		*getMap() const = 0;
     virtual StateType		getState() const = 0;
     virtual void		start() = 0;

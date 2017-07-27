@@ -3,12 +3,12 @@
 namespace retromania
 {
 
-void 		Emulator::leaveEmulator()
+void Emulator::leaveEmulator()
 {
   _leaveEmulator = true;
 }
 
-void		Emulator::prevGraphic()
+void Emulator::prevGraphic()
 {
   --_idxGraphic;
   if (_idxGraphic < 0) {
@@ -17,7 +17,7 @@ void		Emulator::prevGraphic()
   switchLibrary<IGraphic>(_idxGraphic);
 }
 
-void 		Emulator::nextGraphic()
+void Emulator::nextGraphic()
 {
   ++_idxGraphic;
   if ((size_t)_idxGraphic >= _graphics.size()) {
@@ -26,7 +26,7 @@ void 		Emulator::nextGraphic()
   switchLibrary<IGraphic>(_idxGraphic);
 }
 
-void 		Emulator::prevGame()
+void Emulator::prevGame()
 {
   --_idxGame;
   if (_idxGame < 0) {
@@ -35,7 +35,7 @@ void 		Emulator::prevGame()
   switchLibrary<IGame>(_idxGame);
 }
 
-void 		Emulator::nextGame()
+void Emulator::nextGame()
 {
   ++_idxGame;
   if ((size_t)_idxGame >= _games.size()) {
@@ -44,7 +44,7 @@ void 		Emulator::nextGame()
   switchLibrary<IGame>(_idxGame);
 }
 
-void 		Emulator::restartGame()
+void Emulator::restartGame()
 {
   if (!_inMenu) {
     _currGame->stop();
@@ -52,14 +52,14 @@ void 		Emulator::restartGame()
   }
 }
 
-void 		Emulator::backToMenu()
+void Emulator::backToMenu()
 {
   _inMenu = true;
   _currGame = nullptr;
   _currGameState = OFF;
 }
 
-void 		Emulator::affMenu()
+void Emulator::affMenu()
 {
   size_t	nbElem;
   pos_t		pos;
@@ -93,7 +93,7 @@ void 		Emulator::affMenu()
   affScores();
 }
 
-void 		Emulator::affScores()
+void Emulator::affScores()
 {
   std::string	name, score;
   pos_t		pos;

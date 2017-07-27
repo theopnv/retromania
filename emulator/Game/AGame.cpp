@@ -39,7 +39,7 @@ conf_t const		*AGame::getConfig() const
   return _config;
 }
 
-IScore const		*AGame::getScore() const
+Score const		*AGame::getScore() const
 {
   return _score;
 }

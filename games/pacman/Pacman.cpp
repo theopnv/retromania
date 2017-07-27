@@ -29,9 +29,6 @@ Pacman::Pacman(uint16_t const width, uint16_t const height)
 
 Pacman::~Pacman()
 {
-  delete _hero;
-  delete _map;
-  delete _config;
 }
 
 void	Pacman::play()
@@ -65,14 +62,10 @@ void 	Pacman::stop()
 {
   _state = OFF;
 
-  if (_hero)
-    delete _hero;
-  if (_ennemies.size())
-    {
-      for (auto it : _ennemies)
-	delete it;
-      _ennemies.clear();
-    }
+
+  if (_ennemies.size()) {
+    _ennemies.clear();
+  }
 }
 
 void 	Pacman::renderHero()

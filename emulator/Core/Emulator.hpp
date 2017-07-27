@@ -36,7 +36,7 @@ class			Emulator
 
     typedef libTab_t<IGame>				gameTab_t;
     typedef libTab_t<IGraphic>				graphicTab_t;
-    typedef std::map<std::string, IScore *>		scoreTab_t;
+    typedef std::map<std::string, Sptr_t<Score>>	scoreTab_t;
     typedef void 					(Emulator::*aFp)();
 
     gameTab_t		_games;

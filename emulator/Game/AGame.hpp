@@ -4,6 +4,7 @@
 # include			<unordered_map>
 # include			"IGame.hpp"
 # include			"Score.hpp"
+# include			"typedef.hpp"
 # include			"ACharacter.hpp"
 
 namespace retromania
@@ -22,7 +23,7 @@ class				AGame : public IGame
     std::vector<conf_t*> _vconfigs;
     int				_current_config;
     map_t			*_map;
-    IScore			*_score;
+    Score			*_score;
     ACharacter			*_hero;
     StateType			_state;
 
@@ -40,7 +41,7 @@ class				AGame : public IGame
 				AGame(uint16_t const, uint16_t const);
 				~AGame();
     virtual conf_t const	*getConfig() const;
-    virtual IScore const	*getScore() const;
+    virtual Score const		*getScore() const;
     virtual map_t const		*getMap() const;
     virtual StateType		getState() const;
     virtual void		goUp();

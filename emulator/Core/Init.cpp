@@ -18,7 +18,7 @@ void Emulator::initScore()
 {
   /* Init score Tab */
   for (auto &it : _games) {
-    IScore	*score = new Score();
+    Score	*score = new Score();
 
     score->setValue(0);
     _scoreTab.insert(std::make_pair(it.lib->getName(), score));
@@ -60,9 +60,6 @@ Emulator::~Emulator()
   }
   for (auto &it : _graphics) {
     it.loader->closeInstance();
-  }
-  for (auto &it : _scoreTab) {
-    delete it.second;
   }
 }
 
