@@ -29,6 +29,7 @@ class			AGhost : public ACharacter
 			       const int,
        			       const std::string &);
     virtual		~AGhost();
+
     void 		setAMap(map_t const &);
     int			getTarget() const;
     path_t const	&getPath() const;
@@ -37,5 +38,7 @@ class			AGhost : public ACharacter
     void 		updatePos();
     virtual void 	setTarget(const int, const int) = 0;
 };
+
 }
+
 #endif			/* !GHOST_H */

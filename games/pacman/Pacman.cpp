@@ -79,7 +79,7 @@ void 	Pacman::renderGom()
   }
 }
 
-void 		Pacman::renderGhost(AGhost *ghost)
+void 		Pacman::renderGhost(Sptr_t<AGhost> ghost)
 {
   if (ghost->getId() == BLINKY) {
     _map.tiles.at(ghost->getPositionAt(0)) = BLINKY;
