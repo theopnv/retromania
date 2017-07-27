@@ -20,9 +20,9 @@ library through it. It must follow this pattern :
 ```
 extern "C"
 {
-    IGraphic	*entryPoint()
+    std::shared_ptr<Your Library Type> entryPoint()
     {
-      return new <Your Library>();
+      return std::make_shared<Your Library Type>();
     }
 }
 ```

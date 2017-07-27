@@ -29,7 +29,7 @@ void 			Pacman::initCharacter()
 
   startPos = _map->width * ((_map->height / 2) + 2) + (_map->width / 2) - 2;
   pos.push_back(startPos);
-  _hero = new ACharacter(pos, PACMAN, "Pacman");
+  _hero = std::make_shared<ACharacter>(pos, PACMAN, "Pacman");
   _hero->setDirection(ACharacter::RIGHT);
   _pacNextDirection = ACharacter::RIGHT;
 }
@@ -73,22 +73,22 @@ void 			Pacman::initGhost()
   int			gHouseLeft = 389;
 
   pos.push_back(gHouseLeft);
-  AGhost		*blinky = new Blinky(pos, _map);
+  Sptr_t<Blinky>	blinky = std::make_shared<Blinky>(pos, _map);
   _ennemies.push_back(blinky);
 
   pos.clear();
   pos.push_back(gHouseLeft + 1);
-  AGhost		*inky = new Inky(pos, _map);
+  Sptr_t<Inky>		inky = std::make_shared<Inky>(pos, _map);
   _ennemies.push_back(inky);
 
   pos.clear();
   pos.push_back(gHouseLeft + 2);
-  AGhost		*pinky = new Pinky(pos, _map);
+  Sptr_t<Pinky>		pinky = std::make_shared<Pinky>(pos, _map);
   _ennemies.push_back(pinky);
 
   pos.clear();
   pos.push_back(gHouseLeft + 3);
-  AGhost		*clyde = new Clyde(pos, _map);
+  Sptr_t<Clyde>		clyde = std::make_shared<Clyde>(pos, _map);
   _ennemies.push_back(clyde);
 }
 }

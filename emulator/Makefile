@@ -7,7 +7,7 @@ DEF		=	\033[0m
 CC		=	g++
 RM		=	rm -rf
 NAME		=	../retro-station
-CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) -ldl
+CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) -ldl -g
 INC		=	-IGraphic -IGame 		\
 			-ICore				\
 			-IDLLoader -IFileHandler	\

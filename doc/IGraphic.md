@@ -19,7 +19,7 @@ Creates a window.
 
 Quits the window.
 
-    virtual void 		setConfig(conf_t const *) = 0;
+    virtual void 		setConfig(const std::shared_ptr<conf_t> config) = 0;
 
 Sets the configuration map, previously returned from the current game. This way, the graphical library knows exactly how to display each tile of the map.
 
@@ -27,6 +27,6 @@ Sets the configuration map, previously returned from the current game. This way,
 
 Takes, respectively as arguments : the message to display, the position, the size of the font, and the color.
 
-    virtual void 		display(map_t const *map = nullptr) = 0;
+    virtual void 		display(const std::shared_ptr<map_t> map = nullptr) = 0;
 
 Refresh the screen. If called from menu, there's no need for a map so nullptr is passed. When called during a game execution, the game map is passed.

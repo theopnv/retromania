@@ -10,7 +10,7 @@ EMULATOR_DIR	=	${ROOT}emulator/
 CC		=	g++
 RM		=	rm -rf
 NAME		=	../lib_sdl.so
-CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 	\
+CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 -g	\
 			-lSDL2 -lSDL2_image -lSDL2_ttf		\
 			$(shell sdl2-config --cflags --libs)	\
 			$(INC)

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "LibLapin.hpp"
 
 namespace retromania
@@ -6,9 +7,9 @@ namespace retromania
 
 extern "C"
 {
-  IGraphic	*entryPoint()
+  std::shared_ptr<LibLapin> entryPoint()
   {
-    return new LibLapin();
+    return std::make_shared<LibLapin>();
   }
 }
 

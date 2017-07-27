@@ -2,9 +2,6 @@
 #include "IGraphic.hpp"
 #include "DLLoader.hpp"
 
-namespace retromania
-{
-
 template <class T>
 DLLoader<T>::DLLoader(std::string const &entryPoint)
 {
@@ -12,19 +9,24 @@ DLLoader<T>::DLLoader(std::string const &entryPoint)
 }
 
 template <class T>
-void		*DLLoader<T>::getErr(const char *err)
+DLLoader<T>::~DLLoader()
+{
+}
+
+template <class T>
+void *DLLoader<T>::getErr(const char *err)
 {
   std::cerr << err << std::endl;
   return nullptr;
 }
 
 template <class T>
-T		*DLLoader<T>::getInstance(std::string const &dynLib)
+Sptr_t<T> DLLoader<T>::getInstance(std::string const &dynLib)
 {
-  T		*(*accessClass)();
+  Sptr_t<T>	(*accessClass)();
 
   if (!(_handle = dlopen(dynLib.c_str(), RTLD_NOW | RTLD_LAZY))
-      || !(accessClass = reinterpret_cast<T *(*)()>(dlsym(_handle, _entryPoint.c_str())))) {
+      || !(accessClass = reinterpret_cast<Sptr_t<T> (*)()>(dlsym(_handle, _entryPoint.c_str())))) {
     getErr(dlerror());
     throw std::exception();
   }
@@ -33,7 +35,7 @@ T		*DLLoader<T>::getInstance(std::string const &dynLib)
 }
 
 template <class T>
-void		*DLLoader<T>::closeInstance()
+void	*DLLoader<T>::closeInstance()
 {
   if (dlclose(_handle) != 0) {
     return (getErr(dlerror()));
@@ -42,7 +44,7 @@ void		*DLLoader<T>::closeInstance()
 }
 
 template <class T>
-bool		DLLoader<T>::isDSOFile(std::string const &path)
+bool DLLoader<T>::isDSOFile(std::string const &path)
 {
   size_t	dso;
 
@@ -53,7 +55,7 @@ bool		DLLoader<T>::isDSOFile(std::string const &path)
   return true;
 }
 
-template class DLLoader<IGame>;
-template class DLLoader<IGraphic>;
+template class DLLoader<retromania::IGame>;
+template class DLLoader<retromania::IGraphic>;
 template class DLLoader<void>;
-}
+

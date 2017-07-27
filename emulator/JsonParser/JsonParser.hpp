@@ -8,20 +8,21 @@
 namespace retromania
 {
 
-
 class			JsonParser
 {
   typedef std::unordered_map<std::string, ColorType>	colorTab_t;
 
   private:
-    FileHandler		*_fileHandler;
+    Sptr_t<FileHandler>	_fileHandler;
     colorTab_t		_colors;
 
     void 		initColors();
   public:
 			JsonParser(std::string const &path);
 			~JsonParser();
-    conf_t		*getConfig(AGame::tileIDTab_t &grammar);
+    const Sptr_t<conf_t>	getConfig(AGame::tileIDTab_t &grammar);
 };
+
 }
+
 #endif			/* !JSON_PARSER_H */

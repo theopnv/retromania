@@ -45,7 +45,7 @@ class			SDL : public AGraphic
 				 retromania::pos_t const &,
 				 int const,
 				 ColorType const);
-    virtual void 	display(map_t const *map = nullptr);
+    virtual void 	display(Sptr_t<map_t> const map = nullptr);
 };
 }
 #endif			/* !SDL_H */

@@ -25,7 +25,7 @@ class			LibCaca : public AGraphic
 
     void 		initColorTab();
     void 		initInputTab();
-    void 		blitBackground(map_t const *);
+    void 		blitBackground(const Sptr_t<map_t> map);
   public:
 			LibCaca();
 			~LibCaca();
@@ -39,7 +39,7 @@ class			LibCaca : public AGraphic
 						int const fontSize,
 						ColorType const color) override;
     virtual void 	blitTile(const int, retromania::pos_t &) override ;
-    virtual void	display(const map_t *map = nullptr) override;
+    virtual void	display(const Sptr_t<map_t> map = nullptr) override;
 };
 }
 #endif			/* !LIBACACA_H */

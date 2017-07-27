@@ -21,7 +21,7 @@ $(NAME)		:	liblapin sdl pacman nibbler libcaca exe
 			@echo -e "$(GREEN)Emulator, librairies & games built and ready !$(DEF)\n"
 
 exe		:
-			make -sC ${EMULATOR_DIR}
+			make -C ${EMULATOR_DIR}
 
 libcaca	:
 			make -sC ${LIB_DIR}libcaca

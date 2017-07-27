@@ -5,22 +5,21 @@ namespace retromania
 
 JsonParser::JsonParser(std::string const &path)
 {
-  _fileHandler = new FileHandler(path);
+  _fileHandler = std::make_shared<FileHandler>(path);
   initColors();
 }
 
 JsonParser::~JsonParser()
 {
-  delete _fileHandler;
 }
 
-conf_t		*JsonParser::getConfig(AGame::tileIDTab_t &grammar)
+const Sptr_t<conf_t> JsonParser::getConfig(AGame::tileIDTab_t &grammar)
 {
   std::string	line;
-  conf_t	*config = new conf_t;
   aff_t		aff;
   TileID	tileID = 0;
   size_t	tileCompleted = 0;
+  Sptr_t<conf_t>	config = std::make_shared<conf_t>();
 
   do {
     line = _fileHandler->getLine();
@@ -58,4 +57,5 @@ void 		JsonParser::initColors()
   _colors.insert(std::make_pair("GREY", _GREY));
   _colors.insert(std::make_pair("BLACK", _BLACK));
 }
+
 }

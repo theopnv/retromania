@@ -6,7 +6,7 @@
 # include		"Score.hpp"
 # include		"IGraphic.hpp"
 # include		"DLLoader.hpp"
-# include		"main.hpp"
+# include		"typedef.hpp"
 
 # define IS_MENU_KEY(k)	(k == ESC || k == TWO || k == THREE || k == FOUR	\
 			 || k == FIVE || k == EIGHT || k == NINE)
@@ -15,6 +15,7 @@ namespace retromania
 
 class			Emulator
 {
+
   private:
 
     /*
@@ -22,10 +23,10 @@ class			Emulator
     ** The lodaer is needed to close the instance when exiting
     */
     template <typename T>
-    struct		lib_s
+    struct				lib_s
     {
-      DLLoader<T>	*loader;
-      T			*lib;
+      Sptr_t<DLLoader<T>>	loader;
+      Sptr_t<T>			lib;
     };
 
     template <typename T>
@@ -35,16 +36,16 @@ class			Emulator
 
     typedef libTab_t<IGame>				gameTab_t;
     typedef libTab_t<IGraphic>				graphicTab_t;
-    typedef std::map<std::string, IScore *>		scoreTab_t;
+    typedef std::map<std::string, Sptr_t<Score>>	scoreTab_t;
     typedef void 					(Emulator::*aFp)();
 
     gameTab_t		_games;
     int			_idxGame;	/* Current game (index) */
-    IGame		*_currGame;	/* Equivalent to _games[_idxGame].lib */
+    Sptr_t<IGame>	_currGame;	/* Equivalent to _games[_idxGame].lib */
 
     graphicTab_t	_graphics;
     int			_idxGraphic;	/* Current Graphic lib (index) */
-    IGraphic		*_currGraphic;	/* Equivalent to _graphic[_idxGraphic].lib */
+    Sptr_t<IGraphic>	_currGraphic;	/* Equivalent to _graphic[_idxGraphic].lib */
 
     std::string		_defaultLib;
     InputType		_input;		/* User Input */
@@ -91,4 +92,5 @@ class			Emulator
 };
 
 }
+
 #endif			/* !ARCADE_H */

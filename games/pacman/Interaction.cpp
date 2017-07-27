@@ -12,7 +12,7 @@ void 		Pacman::eatGoms()
   if (_map->tiles[pos] == GOM) {
     _goms[pos] = false;
     _map->tiles[pos] = EMPTY;
-    _score->setValue(_score->getValue() + 10);
+    _score.setValue(_score.getValue() + 10);
     ++_eaten;
   }
 

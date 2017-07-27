@@ -82,7 +82,7 @@ void 		SDL::blitBackground() const
     error(__FILE__, __LINE__, SDL_GetError());
 }
 
-void 		SDL::display(map_t const *map)
+void 		SDL::display(const Sptr_t<map_t> map)
 {
   if (map) {
     blitMap(map);

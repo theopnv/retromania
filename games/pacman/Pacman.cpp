@@ -7,9 +7,9 @@ namespace retromania
 
 extern "C"
 {
-  IGame		*entryPoint()
+  std::shared_ptr<Pacman> entryPoint()
   {
-    return new Pacman();
+    return std::make_shared<Pacman>();
   }
 
 }
@@ -22,16 +22,10 @@ Pacman::Pacman(uint16_t const width, uint16_t const height)
 {
   initTileIDTab();
   setConfig();
-  loadMap(_MAP_PATH);	// Keep all these functions in construct for Protocol
-  initCharacter();
-  initDirsTab();
 }
 
 Pacman::~Pacman()
 {
-  delete _hero;
-  delete _map;
-  delete _config;
 }
 
 void	Pacman::play()
@@ -52,7 +46,7 @@ void	Pacman::play()
 
 void 	Pacman::start()
 {
-  _score->setValue(0);
+  _score.setValue(0);
   _state = ON;
   loadMap(_MAP_PATH);
   initCharacter();
@@ -65,14 +59,10 @@ void 	Pacman::stop()
 {
   _state = OFF;
 
-  if (_hero)
-    delete _hero;
-  if (_ennemies.size())
-    {
-      for (auto it : _ennemies)
-	delete it;
-      _ennemies.clear();
-    }
+
+  if (_ennemies.size()) {
+    _ennemies.clear();
+  }
 }
 
 void 	Pacman::renderHero()
@@ -89,7 +79,7 @@ void 	Pacman::renderGom()
   }
 }
 
-void 		Pacman::renderGhost(AGhost *ghost)
+void 		Pacman::renderGhost(Sptr_t<AGhost> ghost)
 {
   if (ghost->getId() == BLINKY) {
     _map->tiles.at(ghost->getPositionAt(0)) = BLINKY;

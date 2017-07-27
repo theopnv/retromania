@@ -1,8 +1,7 @@
 #ifndef			ACHARACTER_H
 # define		ACHARACTER_H
 
-# include		"IGame.hpp"
-# include		"main.hpp"
+# include		"Standards.hpp"
 
 namespace retromania
 {
@@ -19,6 +18,15 @@ class			ACharacter
       RIGHT
     }			dir_t;
 
+  protected:
+    int			_id;
+    std::string		_name;
+    pos_t		_pos;
+    dir_t		_dir;
+
+  public:
+
+			ACharacter();
 			ACharacter(const pos_t pos,
 				   const int id,
 				   const std::string &name);
@@ -34,12 +42,8 @@ class			ACharacter
     pos_t		getPosition() const;
     int			getPositionAt(const int) const;
     int			getTarget() const;
-
-  protected:
-    int			_id;
-    std::string		_name;
-    pos_t		_pos;
-    dir_t		_dir;
 };
+
 }
+
 #endif			/* !ACHARACTER_H */

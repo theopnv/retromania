@@ -14,7 +14,7 @@ AGraphic::~AGraphic()
 {
 }
 
-void 		AGraphic::setConfig(conf_t const *config)
+void 		AGraphic::setConfig(const Sptr_t<conf_t> config)
 {
   _config = config;
 }
@@ -28,7 +28,7 @@ void 		AGraphic::error(const char *file,
 	    << " : " << msg << std::endl;
 }
 
-void 		AGraphic::blitMap(map_t const *map)
+void 		AGraphic::blitMap(const Sptr_t<map_t> map)
 {
   retromania::pos_t	pos;
 

@@ -10,7 +10,7 @@ class			Clyde : public AGhost
 {
   public:
 			Clyde(const pos_t &pos,
-			      const map_t *map,
+			      const Sptr_t<map_t> map,
 			      const int id = CLYDE,
 			      const std::string &name = "Clyde");
 			~Clyde();

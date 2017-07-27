@@ -28,7 +28,7 @@ void 	LibCaca::quitWindow()
   caca_free_display(_dp);
 }
 
-void 	LibCaca::display(map_t const *map)
+void 	LibCaca::display(Sptr_t<map_t> const map)
 {
   if (map) {
     blitMap(map);
@@ -42,7 +42,7 @@ void 	LibCaca::display(map_t const *map)
   caca_clear_canvas(_cv);
 }
 
-void 	LibCaca::blitBackground(map_t const *map)
+void 	LibCaca::blitBackground(const Sptr_t<map_t> map)
 {
   retromania::pos_t	pos;
 

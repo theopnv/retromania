@@ -10,7 +10,7 @@ EMULATOR_DIR	=	${ROOT}emulator/
 CC		=	g++
 RM		=	rm -rf
 NAME		=	../lib_libcaca.so
-CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) $(LIBCACA_FLAGS)
+CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) $(LIBCACA_FLAGS) -g
 LFLAGS		=	-fPIC -shared
 INC		=	-I${EMULATOR_DIR}Graphic/			\
 			-I${EMULATOR_DIR}

@@ -10,7 +10,7 @@ class			Inky : public AGhost
 {
   public:
 			Inky(const pos_t &pos,
-			     const map_t *map,
+			     const Sptr_t<map_t> map,
 			     const int id = INKY,
 			     const std::string &name = "Inky");
 			~Inky();

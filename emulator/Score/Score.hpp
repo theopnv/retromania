@@ -1,12 +1,10 @@
 #ifndef			SCORE_H
 # define		SCORE_H
 
-# include		"IScore.hpp"
-
 namespace retromania
 {
 
-class			Score : public IScore
+class			Score
 {
   private:
     int			_value;

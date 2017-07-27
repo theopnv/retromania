@@ -33,6 +33,7 @@ int		main(int ac, char **av)
     return (FAILURE);
   }
   retromania::Emulator	*emulator = new retromania::Emulator(av[1]);
+
   emulator->mainloop();
   return (SUCCESS);
 }

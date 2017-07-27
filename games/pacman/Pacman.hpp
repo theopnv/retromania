@@ -17,7 +17,7 @@ class			Pacman : public AGame
 
   typedef std::unordered_map<InputType, ACharacter::dir_t>	dirTab_t;
   typedef std::vector<bool>					boolTab_t;
-  typedef std::vector<AGhost *>					ennemiesTab_t;
+  typedef std::vector<std::shared_ptr<AGhost>>			ennemiesTab_t;
 
   private:
     static const std::string	_MAP_PATH;
@@ -44,7 +44,7 @@ class			Pacman : public AGame
     bool		isNotGhostHouse(const int);
     void 		eatGoms();
     void 		manageGhosts();
-    void 		renderGhost(AGhost *);
+    void 		renderGhost(Sptr_t<AGhost>);
   public:
 			Pacman(uint16_t const width = 29,
 			       uint16_t const height = 31);

@@ -25,7 +25,7 @@ LibLapin::inputTab_t	&LibLapin::getInputTab()
   return _inputTab;
 }
 
-void 		LibLapin::setConfig(conf_t const *config)
+void 		LibLapin::setConfig(const Sptr_t<conf_t> config)
 {
   _config = config;
   if (_configTab.size()) {
