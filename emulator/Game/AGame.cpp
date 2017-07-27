@@ -15,7 +15,6 @@ AGame::AGame(uint16_t const width, uint16_t const height)
 
 AGame::~AGame()
 {
-  delete _hero;
 }
 
 uint16_t AGame::getI(uint16_t const y, uint16_t const x) const

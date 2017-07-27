@@ -31,7 +31,7 @@ namespace retromania
     pos.push_back(center - 1);
     pos.push_back(center - 2);
     pos.push_back(center - 3);
-    _hero = new ACharacter(pos, SNAKE, "Snake");
+    _hero = std::make_shared<ACharacter>(pos, SNAKE, "Snake");
     _hero->setDirection(ACharacter::RIGHT);
   }
 

@@ -24,7 +24,7 @@ class				AGame : public IGame
     int				_current_config;
     Sptr_t<map_t>		_map;
     Score			_score;
-    ACharacter			*_hero;
+    Sptr_t<ACharacter>		_hero;
     StateType			_state;
 
     uint16_t			getI(uint16_t const, uint16_t) const;

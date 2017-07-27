@@ -29,7 +29,7 @@ void 			Pacman::initCharacter()
 
   startPos = _map->width * ((_map->height / 2) + 2) + (_map->width / 2) - 2;
   pos.push_back(startPos);
-  _hero = new ACharacter(pos, PACMAN, "Pacman");
+  _hero = std::make_shared<ACharacter>(pos, PACMAN, "Pacman");
   _hero->setDirection(ACharacter::RIGHT);
   _pacNextDirection = ACharacter::RIGHT;
 }
