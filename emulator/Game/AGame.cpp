@@ -6,8 +6,9 @@ namespace retromania
 
 AGame::AGame(uint16_t const width, uint16_t const height)
 {
-  _map.width = width;
-  _map.height = height;
+  _map = std::make_shared<map_t>();
+  _map->width = width;
+  _map->height = height;
 
   _score.setValue(0);
 }
@@ -19,17 +20,17 @@ AGame::~AGame()
 
 uint16_t		AGame::getI(uint16_t const y, uint16_t const x) const
 {
-  return (y * _map.width + x);
+  return (y * _map->width + x);
 }
 
 uint16_t		AGame::getY(uint16_t const i) const
 {
-  return (i / _map.width);
+  return (i / _map->width);
 }
 
 uint16_t		AGame::getX(uint16_t const i) const
 {
-  return (i % _map.width);
+  return (i % _map->width);
 }
 
 conf_t const		*AGame::getConfig() const
@@ -42,7 +43,7 @@ Score const		&AGame::getScore() const
   return _score;
 }
 
-map_t const		&AGame::getMap() const
+Sptr_t<map_t> const	AGame::getMap() const
 {
   return _map;
 }
@@ -63,10 +64,10 @@ void 			AGame::loadMap(std::string const &path)
     return;
   }
 
-  _map.tiles.clear();
+  _map->tiles.clear();
   while (getline(f, line)) {
     for (unsigned int i = 0; i < line.size(); i++) {
-      _map.tiles.push_back(line[i] - '0');
+      _map->tiles.push_back(line[i] - '0');
     }
   }
   f.close();

@@ -6,6 +6,7 @@
 # include		"ACharacter.hpp"
 # include		"AStarTypes.hpp"
 # include		"TileType.hpp"
+# include		"typedef.hpp"
 
 namespace retromania
 {
@@ -24,13 +25,13 @@ class			AGhost : public ACharacter
     bool		isAtCrossway();
     int			findValidNear(const int);
   public:
-    			AGhost(const pos_t &,
-			       const map_t &,
-			       const int,
+    			AGhost(const pos_t & pos,
+			       const Sptr_t<map_t> map,
+			       const int id,
        			       const std::string &);
     virtual		~AGhost();
 
-    void 		setAMap(map_t const &);
+    void 		setAMap(const Sptr_t<map_t> map);
     int			getTarget() const;
     path_t const	&getPath() const;
     void 		setPacTarget(const int);

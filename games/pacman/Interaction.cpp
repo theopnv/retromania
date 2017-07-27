@@ -9,9 +9,9 @@ void 		Pacman::eatGoms()
 {
   int		pos = _hero->getPositionAt(0);
 
-  if (_map.tiles[pos] == GOM) {
+  if (_map->tiles[pos] == GOM) {
     _goms[pos] = false;
-    _map.tiles[pos] = EMPTY;
+    _map->tiles[pos] = EMPTY;
     _score.setValue(_score.getValue() + 10);
     ++_eaten;
   }
@@ -25,7 +25,7 @@ void 		Pacman::eatGoms()
 void 		Pacman::manageGhosts()
 {
   for (auto it : _ennemies) {
-    _map.tiles.at(it->getPositionAt(0)) = EMPTY;
+    _map->tiles.at(it->getPositionAt(0)) = EMPTY;
     it->setTarget(_hero->getPositionAt(0), _hero->getDirection());
     it->chasePac();
     if (it->getPath().size() <= 1) {

@@ -22,7 +22,7 @@ class			AGraphic : public IGraphic
   protected:
     virtual void 	setConfig(conf_t const *);
     virtual void 	blitTile(int const, retromania::pos_t &) = 0;
-    void 		blitMap(map_t const *);
+    void 		blitMap(const Sptr_t<map_t> map);
     void		error(const char *,
 			      const unsigned int,
 			      const std::string &) const;

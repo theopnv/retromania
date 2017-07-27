@@ -77,7 +77,7 @@ void 		LibLapin::blitTile(int const tileID,
   bunny_blit(&_window->buffer, pic, &pos);
 }
 
-void 		LibLapin::display(map_t const *map)
+void 		LibLapin::display(Sptr_t<map_t> const map)
 {
   if (map) {
     blitMap(map);

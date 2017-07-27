@@ -81,8 +81,8 @@ void Emulator::saveScore()
 
   for (auto it : _scoreTab) {
     if (it.first == _currGame->getName()
-	&& it.second->getValue() < _currGame->getScore()->getValue()) {
-      val = _currGame->getScore()->getValue();
+	&& it.second->getValue() < _currGame->getScore().getValue()) {
+      val = _currGame->getScore().getValue();
       it.second->setValue(val);
     }
   }

@@ -17,10 +17,10 @@ class				IGame
     virtual void		setInput(InputType) = 0;
     virtual conf_t const 	*getConfig() const = 0;
     virtual Score const		&getScore() const = 0;
-    virtual map_t const		&getMap() const = 0;
     virtual StateType		getState() const = 0;
     virtual void		start() = 0;
     virtual void		stop() = 0;
+    virtual Sptr_t<map_t> const		getMap() const = 0;
 
     virtual void		goUp() = 0;
     virtual void		goDown() = 0;

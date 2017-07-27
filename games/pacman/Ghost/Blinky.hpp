@@ -10,7 +10,7 @@ class			Blinky : public AGhost
 {
   public:
 			Blinky(const pos_t &pos,
-			       const map_t &map,
+			       const Sptr_t<map_t> map,
 			       const int id = BLINKY,
 			       const std::string &name = "Blinky");
 			~Blinky();

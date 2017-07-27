@@ -28,7 +28,7 @@ void 		AGraphic::error(const char *file,
 	    << " : " << msg << std::endl;
 }
 
-void 		AGraphic::blitMap(map_t const *map)
+void 		AGraphic::blitMap(const Sptr_t<map_t> map)
 {
   retromania::pos_t	pos;
 
