@@ -2,7 +2,7 @@
 # define		ACHARACTER_H
 
 # include		"IGame.hpp"
-# include		"main.hpp"
+# include		"typedef.hpp"
 
 namespace retromania
 {

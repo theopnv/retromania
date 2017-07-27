@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "LibCaca.hpp"
 
 namespace retromania
@@ -6,9 +7,9 @@ namespace retromania
 
 extern "C"
 {
-  IGraphic	*entryPoint()
+  std::shared_ptr<LibCaca> entryPoint()
   {
-    return new LibCaca();
+    return std::make_shared<LibCaca>();
   }
 }
 

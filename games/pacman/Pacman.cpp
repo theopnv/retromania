@@ -7,9 +7,9 @@ namespace retromania
 
 extern "C"
 {
-  IGame		*entryPoint()
+  std::shared_ptr<Pacman> entryPoint()
   {
-    return new Pacman();
+    return std::make_shared<Pacman>();
   }
 
 }

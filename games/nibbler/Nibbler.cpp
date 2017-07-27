@@ -3,6 +3,7 @@
 #include <thread>
 #include <random>
 #include <cstring>
+#include <memory>
 #include "Nibbler.hpp"
 
 namespace retromania
@@ -10,9 +11,9 @@ namespace retromania
 
   extern "C"
   {
-  IGame		*entryPoint()
+  std::shared_ptr<Nibbler> entryPoint()
   {
-    return new Nibbler();
+    return std::make_shared<Nibbler>();
   }
 
   }

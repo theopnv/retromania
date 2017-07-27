@@ -2,7 +2,6 @@
 #include <dirent.h>
 #include <typeinfo>
 #include <cstring>
-#include "DLLoader.hpp"
 #include "Emulator.hpp"
 
 namespace retromania
@@ -15,7 +14,7 @@ Emulator::Emulator(std::string const &defaultLib)
   initScore();
 }
 
-void 		Emulator::initScore()
+void Emulator::initScore()
 {
   /* Init score Tab */
   for (auto &it : _games) {
@@ -26,7 +25,7 @@ void 		Emulator::initScore()
   }
 }
 
-void 		Emulator::initMenuTab()
+void Emulator::initMenuTab()
 {
   _menuTab.insert(std::make_pair(ESC, &Emulator::leaveEmulator));
   _menuTab.insert(std::make_pair(TWO, &Emulator::prevGraphic));
@@ -37,7 +36,7 @@ void 		Emulator::initMenuTab()
   _menuTab.insert(std::make_pair(NINE, &Emulator::backToMenu));
 }
 
-void 		Emulator::initLibrairies(std::string const &defaultLib)
+void Emulator::initLibrairies(std::string const &defaultLib)
 {
   /* Set default graphic lib */
   _defaultLib = defaultLib;
@@ -67,7 +66,7 @@ Emulator::~Emulator()
   }
 }
 
-void	Emulator::setLibraries()
+void Emulator::setLibraries()
 {
   openLibDir<IGame>("games", _games);
   openLibDir<IGraphic>("lib", _graphics);
@@ -79,7 +78,7 @@ void	Emulator::setLibraries()
 */
 
 template <typename T>
-void	Emulator::openLibDir(std::string const &path, libTab_t<T> &libTab)
+void Emulator::openLibDir(std::string const &path, libTab_t<T> &libTab)
 {
   DIR		*dir;
   struct dirent	*curr;
@@ -101,37 +100,37 @@ void	Emulator::openLibDir(std::string const &path, libTab_t<T> &libTab)
 */
 
 template <typename T>
-Emulator::lib_t<T>	Emulator::getLibInstance(std::string const &path)
+Emulator::lib_t<T> Emulator::getLibInstance(std::string const &path)
 {
   Emulator::lib_t<T>	newLib;
-  DLLoader<T>		*loader;
+  Sptr_t<DLLoader<T>>	loader;
 
-  newLib.loader = loader = new DLLoader<T>;
+  newLib.loader = loader = std::make_shared<DLLoader<T>>();
   newLib.lib = loader->getInstance(path);
   return newLib;
 }
 
 template<>
-void 	Emulator::switchLibrary<IGraphic>(const int idx)
+void Emulator::switchLibrary<IGraphic>(const int idx)
 {
-    _currGraphic->quitWindow();
-    _idxGraphic = idx;
-    _currGraphic = _graphics[_idxGraphic].lib;
-    _currGraphic->createWindow();
-    if (_currGame) {
-      _currGraphic->setConfig(_currGame->getConfig());
-    }
+  _currGraphic->quitWindow();
+  _idxGraphic = idx;
+  _currGraphic = _graphics[_idxGraphic].lib;
+  _currGraphic->createWindow();
+  if (_currGame) {
+    _currGraphic->setConfig(_currGame->getConfig());
+  }
 }
 
 template<>
-void 	Emulator::switchLibrary<IGame>(const int idx)
+void Emulator::switchLibrary<IGame>(const int idx)
 {
-    _idxGame = idx;
-    _currGame = _games[_idxGame].lib;
-    _inMenu = false;
-    _currGame->start();
-    _currGraphic->setConfig(_currGame->getConfig());
-    _currGameState = ON;
+  _idxGame = idx;
+  _currGame = _games[_idxGame].lib;
+  _inMenu = false;
+  _currGame->start();
+  _currGraphic->setConfig(_currGame->getConfig());
+  _currGameState = ON;
 }
 
 }

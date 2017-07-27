@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "SDL.hpp"
 
 namespace retromania
@@ -6,9 +7,9 @@ namespace retromania
 
 extern "C"
 {
-  IGraphic	*entryPoint()
+  std::shared_ptr<SDL> entryPoint()
   {
-    return new SDL();
+    return std::make_shared<SDL>();
   }
 }
 

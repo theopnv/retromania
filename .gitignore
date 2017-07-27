@@ -4,4 +4,4 @@ games/lib_*
 
 .vscode
 *.o
-*.vgcore
+vgcore*
