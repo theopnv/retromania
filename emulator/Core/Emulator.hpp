@@ -22,16 +22,16 @@ class			Emulator
     ** Object representing a dynamic library
     ** The lodaer is needed to close the instance when exiting
     */
-    template <typename T>
-    struct				lib_s
+    template <class T>
+    struct			lib_s
     {
-      Sptr_t<DLLoader<T>>	loader;
       Sptr_t<T>			lib;
+      Sptr_t<DLLoader<T>>	loader;
     };
 
-    template <typename T>
+    template <class T>
     using lib_t = lib_s<T>;
-    template <typename T>
+    template <class T>
     using libTab_t = std::vector<lib_t<T> >;
 
     typedef libTab_t<IGame>				gameTab_t;
@@ -71,12 +71,12 @@ class			Emulator
 
     void		options();
     void		setLibraries();
-    template <typename T>
+    template <class T>
     void		openLibDir(std::string const &, libTab_t<T> &);
-    template <typename T>
+    template <class T>
     lib_t<T>		getLibInstance(std::string const &);
     void		whereIsCursor(int const);
-    template <typename T>
+    template <class T>
     void 		switchLibrary(const int);
     void 		saveScore();
     void 		affScores();

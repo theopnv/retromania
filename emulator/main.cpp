@@ -32,9 +32,9 @@ int		main(int ac, char **av)
   if (!checkArgs(ac, av)) {
     return (FAILURE);
   }
-  retromania::Emulator	*emulator = new retromania::Emulator(av[1]);
+  retromania::Emulator	emulator = retromania::Emulator(av[1]);
 
-  emulator->mainloop();
+  emulator.mainloop();
   return (SUCCESS);
 }
 

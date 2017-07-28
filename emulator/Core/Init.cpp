@@ -55,12 +55,17 @@ void Emulator::initLibrairies(std::string const &defaultLib)
 Emulator::~Emulator()
 {
   _currGraphic->quitWindow();
-  for (auto &it : _games) {
+
+  /* This part of the code is commented because if the emulator is
+  ** alocated on the stack, it causes a segfault. The shared libraries
+  ** are closed when exiting the program anyway, so it shouldn't cause
+  ** any trouble for memory allocation */
+  /*for (auto &it : _games) {
     it.loader->closeInstance();
   }
   for (auto &it : _graphics) {
     it.loader->closeInstance();
-  }
+  } */
 }
 
 void Emulator::setLibraries()

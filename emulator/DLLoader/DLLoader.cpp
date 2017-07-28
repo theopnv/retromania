@@ -26,7 +26,8 @@ Sptr_t<T> DLLoader<T>::getInstance(std::string const &dynLib)
   Sptr_t<T>	(*accessClass)();
 
   if (!(_handle = dlopen(dynLib.c_str(), RTLD_NOW | RTLD_LAZY))
-      || !(accessClass = reinterpret_cast<Sptr_t<T> (*)()>(dlsym(_handle, _entryPoint.c_str())))) {
+      || !(accessClass = reinterpret_cast<Sptr_t<T> (*)()>
+			 (dlsym(_handle, _entryPoint.c_str())))) {
     getErr(dlerror());
     throw std::exception();
   }
@@ -49,7 +50,8 @@ bool DLLoader<T>::isDSOFile(std::string const &path)
   size_t	dso;
 
   dso = path.size();
-  if (path.find(".so") == std::string::npos || path.find(".so") != dso - 3) {
+  if (path.find(".so") == std::string::npos
+      || path.find(".so") != dso - 3) {
     return false;
   }
   return true;

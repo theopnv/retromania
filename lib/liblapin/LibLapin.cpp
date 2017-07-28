@@ -31,9 +31,6 @@ LibLapin::LibLapin()
 
 LibLapin::~LibLapin()
 {
-  for (auto it : _fonts) {
-    bunny_delete_clipable(it.second);
-  }
 }
 
 
