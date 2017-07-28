@@ -5,7 +5,7 @@ namespace retromania
 
 void 		Nibbler::moveUp()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   for (size_t i = pos.size() - 1; i > 0; --i) {
     pos[i] = pos[i - 1];
@@ -16,7 +16,7 @@ void 		Nibbler::moveUp()
 
 void 		Nibbler::moveDown()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   for (size_t i = pos.size() - 1; i > 0; --i) {
     pos[i] = pos[i - 1];
@@ -27,7 +27,7 @@ void 		Nibbler::moveDown()
 
 void 		Nibbler::moveLeft()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   for (size_t i = pos.size() - 1; i > 0; --i) {
     pos[i] = pos[i - 1];
@@ -38,7 +38,7 @@ void 		Nibbler::moveLeft()
 
 void 		Nibbler::moveRight()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   for (size_t i = pos.size() - 1; i > 0; --i) {
     pos[i] = pos[i - 1];

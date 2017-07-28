@@ -24,7 +24,7 @@ class			Nibbler : public AGame
     unsigned int 		_fruits  = 0;
     bool 			_justEaten = false;
     int 			_queue;
-    ACharacter::dir_t 		_lastDirection;
+    ACharacter::Dir 		_lastDirection;
 
     void 		setConfig();
     virtual void	initTileIDTab();

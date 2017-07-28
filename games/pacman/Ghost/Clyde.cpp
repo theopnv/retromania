@@ -3,8 +3,8 @@
 namespace retromania
 {
 
-Clyde::Clyde(const pos_t &pos,
-	     const Sptr_t<map_t> map,
+Clyde::Clyde(const Pos &pos,
+	     const Sptr_t<Map> map,
 	     const int id,
 	     const std::string &name)
 		: AGhost(pos, map, id, name)

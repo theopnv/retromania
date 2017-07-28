@@ -10,7 +10,7 @@ namespace retromania
 
 class			JsonParser
 {
-  typedef std::unordered_map<std::string, ColorType>	colorTab_t;
+  using colorTab_t	= std::unordered_map<std::string, ColorType>;
 
   private:
     Sptr_t<FileHandler>	_fileHandler;

@@ -62,7 +62,7 @@ void Emulator::backToMenu()
 void Emulator::affMenu()
 {
   size_t	nbElem;
-  pos_t		pos;
+  Pos		pos;
 
   pos.x = 12;
   pos.y = 2;
@@ -96,7 +96,7 @@ void Emulator::affMenu()
 void Emulator::affScores()
 {
   std::string	name, score;
-  pos_t		pos;
+  Pos		pos;
 
   pos.x = 20;
   pos.y = 8;

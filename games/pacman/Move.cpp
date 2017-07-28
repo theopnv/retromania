@@ -5,7 +5,7 @@ namespace retromania
 
 void 		Pacman::moveUp()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   if (_map->tiles[pos[0] - _map->width] != WALL) {
     pos[0] -= _map->width;
@@ -15,7 +15,7 @@ void 		Pacman::moveUp()
 
 void 		Pacman::moveDown()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   if (_map->tiles[pos[0] + _map->width] != WALL) {
     pos[0] += _map->width;
@@ -25,7 +25,7 @@ void 		Pacman::moveDown()
 
 void 		Pacman::moveLeft()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   if (_map->tiles[pos[0] - 1] != WALL) {
     --pos[0];
@@ -35,7 +35,7 @@ void 		Pacman::moveLeft()
 
 void 		Pacman::moveRight()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   if (_map->tiles[pos[0] + 1] != WALL) {
     ++pos[0];
@@ -46,7 +46,7 @@ void 		Pacman::moveRight()
 
 void 	Pacman::setDirection()
 {
-  ACharacter::pos_t	pos = _hero->getPosition();
+  ACharacter::Pos	pos = _hero->getPosition();
 
   switch (_pacNextDirection)
   {

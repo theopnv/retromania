@@ -3,7 +3,7 @@
 namespace retromania
 {
 
-const int		AGraphic::_MAP_TOP = 1;
+const int		AGraphic::_MapOP = 1;
 const int		AGraphic::_MAP_LEFT = 1;
 
 AGraphic::AGraphic()
@@ -28,11 +28,11 @@ void 		AGraphic::error(const char *file,
 	    << " : " << msg << std::endl;
 }
 
-void 		AGraphic::blitMap(const Sptr_t<map_t> map)
+void 		AGraphic::blitMap(const Sptr_t<Map> map)
 {
-  retromania::pos_t	pos;
+  retromania::Pos	pos;
 
-  pos.y = _MAP_TOP;
+  pos.y = _MapOP;
   pos.x = _MAP_LEFT;
   for (int i = 0; i < map->width * map->height; i++) {
     if (map->tiles[i] != 0) {	// 0 is already rendered by the black background

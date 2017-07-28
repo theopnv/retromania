@@ -12,8 +12,8 @@ namespace retromania
 
 class			SDL : public AGraphic
 {
-  typedef std::map<SDL_Keycode, InputType>	inputTab_t;
-  typedef std::map<ColorType, SDL_Color>	colorTab_t;
+  using inputTab_t	= std::map<SDL_Keycode, InputType>;
+  using colorTab_t	= std::map<ColorType, SDL_Color>;
 
   private:
    static const std::string	_FONT_PATH;
@@ -36,16 +36,16 @@ class			SDL : public AGraphic
 			~SDL();
 
     virtual InputType	getInput() const;
-    virtual std::string const	&getName() const;
+    virtual const std::string&	getName() const;
 
     virtual void 	createWindow();
     virtual void 	quitWindow();
-    virtual void	blitTile(const int, retromania::pos_t &);
+    virtual void	blitTile(const int, retromania::Pos &);
     virtual void	blitText(std::string const &,
-				 retromania::pos_t const &,
+				 retromania::Pos const &,
 				 int const,
 				 ColorType const);
-    virtual void 	display(Sptr_t<map_t> const map = nullptr);
+    virtual void 	display(Sptr_t<Map> const map = nullptr);
 };
 }
 #endif			/* !SDL_H */

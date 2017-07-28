@@ -13,7 +13,7 @@ namespace retromania
 class				AGame : public IGame
 {
   public:
-    typedef std::unordered_map<std::string, TileID>	tileIDTab_t;
+    using tileIDTab_t	= std::unordered_map<std::string, TileID>;
 
   protected:
 
@@ -22,7 +22,7 @@ class				AGame : public IGame
     Sptr_t<conf_t>		_config;
     std::vector<Sptr_t<conf_t>> _vconfigs;
     int				_current_config;
-    Sptr_t<map_t>		_map;
+    Sptr_t<Map>		_map;
     Score			_score;
     Sptr_t<ACharacter>		_hero;
     StateType			_state;
@@ -47,7 +47,7 @@ class				AGame : public IGame
     virtual void		goLeft();
     virtual void		goRight();
     virtual void 		goForward();
-    virtual const Sptr_t<map_t> 	getMap() const;
+    virtual const Sptr_t<Map> 	getMap() const;
     virtual const Sptr_t<conf_t>	getConfig() const;
 };
 }

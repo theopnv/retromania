@@ -23,7 +23,7 @@ namespace retromania
 
   void 		Nibbler::initCharacter()
   {
-    ACharacter::pos_t	pos;
+    ACharacter::Pos	pos;
     uint16_t		center;
 
     center = (_map->width * (_map->height / 2)) + _map->width / 2;
@@ -95,7 +95,7 @@ namespace retromania
 
   void Nibbler::renderHero()
   {
-    ACharacter::pos_t tmp = _hero->getPosition();
+    ACharacter::Pos tmp = _hero->getPosition();
 
     for (auto& it : tmp) {
       _map->tiles.at(it) = SNAKE;
@@ -104,7 +104,7 @@ namespace retromania
 
   void Nibbler::cleanSnake()
   {
-    ACharacter::pos_t tmp = _hero->getPosition();
+    ACharacter::Pos tmp = _hero->getPosition();
 
     for (auto& it : tmp)
       _map->tiles.at(it) = EMPTY;
@@ -163,7 +163,7 @@ namespace retromania
 
   bool Nibbler::checkHit()
   {
-    ACharacter::pos_t tmp;
+    ACharacter::Pos tmp;
 
     tmp = _hero->getPosition();
     for (auto it = tmp.begin() + 1; it != tmp.end(); ++it)
@@ -221,7 +221,7 @@ namespace retromania
   {
     if (_justEaten)
       {
-	ACharacter::pos_t tmp = _hero->getPosition();
+	ACharacter::Pos tmp = _hero->getPosition();
 	tmp.push_back(_queue);
 	_hero->setPosition(tmp);
       }

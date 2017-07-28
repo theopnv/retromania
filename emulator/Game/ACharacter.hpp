@@ -9,37 +9,38 @@ namespace retromania
 class			ACharacter
 {
   public:
-    typedef std::vector<int>	pos_t;
-    typedef enum	dir_e
+    using Pos		= std::vector<int>;
+
+    enum		Dir
     {
       UP,
       DOWN,
       LEFT,
       RIGHT
-    }			dir_t;
+    };
 
   protected:
     int			_id;
     std::string		_name;
-    pos_t		_pos;
-    dir_t		_dir;
+    Pos			_pos;
+    Dir			_dir;
 
   public:
 
 			ACharacter();
-			ACharacter(const pos_t pos,
+			ACharacter(const Pos pos,
 				   const int id,
 				   const std::string &name);
 			~ACharacter();
     void		setId(const int);
     void		setName(const std::string &);
-    void		setPosition(const pos_t);
-    void		setDirection(const dir_t &);
+    void		setPosition(const Pos);
+    void		setDirection(const Dir &);
     void		setTarget(const int);
     int			getId() const;
-    std::string const &	getName() const;
-    dir_t		getDirection() const;
-    pos_t		getPosition() const;
+    const std::string&	getName() const;
+    Dir			getDirection() const;
+    Pos			getPosition() const;
     int			getPositionAt(const int) const;
     int			getTarget() const;
 };

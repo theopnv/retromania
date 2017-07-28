@@ -28,7 +28,7 @@ t_bunny_picture		*LibLapin::openPicture(const char *path)
 }
 
 void		LibLapin::blitText(std::string const &text,
-				   retromania::pos_t const &tmpPos,
+				   retromania::Pos const &tmpPos,
 				   int const /*fontSize*/,
 				   ColorType const color)
 {
@@ -64,7 +64,7 @@ void 		LibLapin::blitBackground() const
 }
 
 void 		LibLapin::blitTile(int const tileID,
-				   retromania::pos_t &_pos)
+				   retromania::Pos &_pos)
 {
   t_bunny_position	pos;
   t_bunny_picture	*pic;
@@ -77,7 +77,7 @@ void 		LibLapin::blitTile(int const tileID,
   bunny_blit(&_window->buffer, pic, &pos);
 }
 
-void 		LibLapin::display(Sptr_t<map_t> const map)
+void 		LibLapin::display(Sptr_t<Map> const map)
 {
   if (map) {
     blitMap(map);

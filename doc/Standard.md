@@ -7,4 +7,4 @@ To separate the logic of our game (IGame) from their display (IGraphic), we need
 - Color: ColorType
 - State (of game): StateType
 
-The game board (`map_t`) is a vector of TileType (integers). Each map must be written and put in the game directory. There must also be a configuration file, linked to a configuration structure (`conf_t`), telling the graphical library how to display each type of tile.
+The game board (`Map`) is a vector of TileType (integers). Each map must be written and put in the game directory. There must also be a configuration file, linked to a configuration structure (`conf_t`), telling the graphical library how to display each type of tile.

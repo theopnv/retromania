@@ -25,7 +25,7 @@ void 		SDL::quitWindow()
 }
 
 void		SDL::blitText(std::string const &text,
-			      retromania::pos_t const &_pos,
+			      retromania::Pos const &_pos,
 			      int const fontSize,
 			      ColorType const _color)
 {
@@ -52,7 +52,7 @@ void		SDL::blitText(std::string const &text,
   SDL_DestroyTexture(texture);
 }
 
-void 		SDL::blitTile(const int tileID, retromania::pos_t &_pos)
+void 		SDL::blitTile(const int tileID, retromania::Pos &_pos)
 {
   SDL_Surface	*surface;
   SDL_Texture	*texture;
@@ -82,7 +82,7 @@ void 		SDL::blitBackground() const
     error(__FILE__, __LINE__, SDL_GetError());
 }
 
-void 		SDL::display(const Sptr_t<map_t> map)
+void 		SDL::display(const Sptr_t<Map> map)
 {
   if (map) {
     blitMap(map);

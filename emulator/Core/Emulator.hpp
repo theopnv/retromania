@@ -34,10 +34,10 @@ class			Emulator
     template <class T>
     using libTab_t = std::vector<lib_t<T> >;
 
-    typedef libTab_t<IGame>				gameTab_t;
-    typedef libTab_t<IGraphic>				graphicTab_t;
-    typedef std::map<std::string, Sptr_t<Score>>	scoreTab_t;
-    typedef void 					(Emulator::*aFp)();
+    using gameTab_t	= libTab_t<IGame>;
+    using graphicTab_t	= libTab_t<IGraphic>;
+    using scoreTab_t	= std::map<std::string, Sptr_t<Score>>;
+    typedef void 	(Emulator::*aFp)();
 
     gameTab_t		_games;
     int			_idxGame;	/* Current game (index) */

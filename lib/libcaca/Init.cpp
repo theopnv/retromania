@@ -8,16 +8,16 @@ namespace retromania
 
 void LibCaca::initColorTab()
 {
-  colorTab.insert(std::make_pair(_WHITE, CACA_WHITE));
-  colorTab.insert(std::make_pair(_RED, CACA_RED));
-  colorTab.insert(std::make_pair(_BLUE, CACA_BLUE));
-  colorTab.insert(std::make_pair(_BLACK, CACA_BLACK));
-  colorTab.insert(std::make_pair(_YELLOW, CACA_YELLOW));
-  colorTab.insert(std::make_pair(_ORANGE, CACA_LIGHTRED));
-  colorTab.insert(std::make_pair(_CYAN, CACA_LIGHTCYAN));
-  colorTab.insert(std::make_pair(_PINK, CACA_MAGENTA));
-  colorTab.insert(std::make_pair(_GREEN, CACA_GREEN));
-  colorTab.insert(std::make_pair(_GREY, CACA_LIGHTGRAY));
+  _colorTab.insert(std::make_pair(_WHITE, CACA_WHITE));
+  _colorTab.insert(std::make_pair(_RED, CACA_RED));
+  _colorTab.insert(std::make_pair(_BLUE, CACA_BLUE));
+  _colorTab.insert(std::make_pair(_BLACK, CACA_BLACK));
+  _colorTab.insert(std::make_pair(_YELLOW, CACA_YELLOW));
+  _colorTab.insert(std::make_pair(_ORANGE, CACA_LIGHTRED));
+  _colorTab.insert(std::make_pair(_CYAN, CACA_LIGHTCYAN));
+  _colorTab.insert(std::make_pair(_PINK, CACA_MAGENTA));
+  _colorTab.insert(std::make_pair(_GREEN, CACA_GREEN));
+  _colorTab.insert(std::make_pair(_GREY, CACA_LIGHTGRAY));
 }
 
 void LibCaca::initInputTab()

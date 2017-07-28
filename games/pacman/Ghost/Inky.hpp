@@ -9,8 +9,8 @@ namespace retromania
 class			Inky : public AGhost
 {
   public:
-			Inky(const pos_t &pos,
-			     const Sptr_t<map_t> map,
+			Inky(const Pos &pos,
+			     const Sptr_t<Map> map,
 			     const int id = INKY,
 			     const std::string &name = "Inky");
 			~Inky();

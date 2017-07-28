@@ -15,16 +15,16 @@ namespace retromania
 class			Pacman : public AGame
 {
 
-  typedef std::unordered_map<InputType, ACharacter::dir_t>	dirTab_t;
-  typedef std::vector<bool>					boolTab_t;
-  typedef std::vector<std::shared_ptr<AGhost>>			ennemiesTab_t;
+  using dirTab_t	= std::unordered_map<InputType, ACharacter::Dir>;
+  using boolTab_t	= std::vector<bool>;
+  using ennemiesTab_t	= std::vector<std::shared_ptr<AGhost>>;
 
   private:
     static const std::string	_MAP_PATH;
     static const std::string	_NAME;
 
     boolTab_t		_aMap;
-    ACharacter::dir_t	_pacNextDirection;
+    ACharacter::Dir	_pacNextDirection;
     dirTab_t		_dirs;
     boolTab_t		_goms;
     int			_eaten;
@@ -50,7 +50,7 @@ class			Pacman : public AGame
 			       uint16_t const height = 31);
 			~Pacman();
     /* Inherited from IGame */
-    virtual std::string const	&getName() const;
+    virtual const std::string&	getName() const;
     virtual void	setInput(InputType);
     virtual void	play();
     virtual void 	start();

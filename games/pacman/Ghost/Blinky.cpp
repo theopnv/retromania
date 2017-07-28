@@ -3,8 +3,8 @@
 namespace retromania
 {
 
-Blinky::Blinky(const pos_t &pos,
-	       const Sptr_t<map_t> map,
+Blinky::Blinky(const Pos &pos,
+	       const Sptr_t<Map> map,
 	       const int id,
 	       const std::string &name)
 	: AGhost(pos, map, id, name)

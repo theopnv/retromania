@@ -5,64 +5,64 @@
 # include		<vector>
 # include		"AStarTypes.hpp"
 
-namespace retromania
+namespace astar
 {
 
 class			AStar
 {
   public:
-    typedef struct
+    struct	Pos
     {
-      int		y;
-      int		x;
-    }			coor_t;
+      int	y;
+      int	x;
+    };
 
   private:
-    typedef struct	cell_s
+    struct	Cell
     {
-      int		F;
-      int		G;
-      int		H;
-      coor_t		cell;
-      struct cell_s 	*parent;
-    }			cell_t;
+      int	F;
+      int	G;
+      int	H;
+      Pos	cell;
+      Cell 	*parent;
+    };
 
-    typedef struct
+    struct		CellTab
     {
-      int			idx;
-      std::vector<cell_t>	array;
-    }				array_t;
+      int		idx;
+      std::vector<Cell>	array;
+    };
 
   private:
 
-    coor_t		_target;
+    Pos		_target;
     int			_lastOut;
-    aMap_t		_map;
-    array_t		_close;
-    array_t		_open;
+    Map		_map;
+    CellTab		_close;
+    CellTab		_open;
     path_t		_path;
 
     int			calcLower() const;
-    void 		updateArrays(const coor_t);
+    void 		updateArrays(const Pos);
     void 		addIn();
     int			getI(int const, int const) const;
     int			getX(int const) const;
     int			getY(int const) const;
     void 		updateArrays(const int);
     bool		endCondition();
-    bool		inArray(coor_t const &) const;
-    void 		updateDistances(const coor_t);
+    bool		inArray(Pos const &) const;
+    void 		updateDistances(const Pos);
     void 		flushPath();
-    cell_t 		*initParent();
+    Cell 		*initParent();
   public:
 			AStar(const int pos,
 			      const int target,
-			      const aMap_t &map);
+			      const Map &map);
 			~AStar();
-    path_t const	&getPath();
+    const path_t&	getPath();
 };
 
-bool		operator==(const AStar::coor_t &,
-			   const AStar::coor_t &);
+bool		operator==(const AStar::Pos &,
+			   const AStar::Pos &);
 }
 #endif			/* !ASTAR_H */

@@ -24,7 +24,7 @@ void 			Pacman::initDirsTab()
 
 void 			Pacman::initCharacter()
 {
-  ACharacter::pos_t	pos;
+  ACharacter::Pos	pos;
   uint16_t		startPos;
 
   startPos = _map->width * ((_map->height / 2) + 2) + (_map->width / 2) - 2;
@@ -69,7 +69,7 @@ void 			Pacman::initGomsTab()
 
 void 			Pacman::initGhost()
 {
-  ACharacter::pos_t	pos;
+  ACharacter::Pos	pos;
   int			gHouseLeft = 389;
 
   pos.push_back(gHouseLeft);

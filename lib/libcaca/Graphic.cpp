@@ -14,11 +14,11 @@ void 	LibCaca::createWindow()
 }
 
 void	LibCaca::blitText(std::string const &text,
-			  retromania::pos_t const &pos,
+			  retromania::Pos const &pos,
 			  int const /*fontSize*/,
 			  ColorType const color)
 {
-  caca_set_color_ansi(_cv, colorTab[color], CACA_BLACK);
+  caca_set_color_ansi(_cv, _colorTab[color], CACA_BLACK);
   caca_put_str(_cv, pos.x, pos.y, text.c_str());
   usleep(500);
 }
@@ -28,7 +28,7 @@ void 	LibCaca::quitWindow()
   caca_free_display(_dp);
 }
 
-void 	LibCaca::display(Sptr_t<map_t> const map)
+void 	LibCaca::display(Sptr_t<Map> const map)
 {
   if (map) {
     blitMap(map);
@@ -42,9 +42,9 @@ void 	LibCaca::display(Sptr_t<map_t> const map)
   caca_clear_canvas(_cv);
 }
 
-void 	LibCaca::blitBackground(const Sptr_t<map_t> map)
+void 	LibCaca::blitBackground(const Sptr_t<Map> map)
 {
-  retromania::pos_t	pos;
+  retromania::Pos	pos;
 
   for (int i = 0; i < map->width * map->height; i++) {
     pos.x = i % map->width;
@@ -54,10 +54,10 @@ void 	LibCaca::blitBackground(const Sptr_t<map_t> map)
   }
 }
 
-void 	LibCaca::blitTile(const int tileID, retromania::pos_t &pos)
+void 	LibCaca::blitTile(const int tileID, retromania::Pos &pos)
 {
-  caca_set_color_ansi(_cv, colorTab[_config->at(tileID).color],
-		colorTab[_config->at(tileID).color]);
+  caca_set_color_ansi(_cv, _colorTab[_config->at(tileID).color],
+		_colorTab[_config->at(tileID).color]);
   caca_put_str(_cv, pos.x, pos.y, ".");
 }
 }

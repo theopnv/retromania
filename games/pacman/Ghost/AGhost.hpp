@@ -18,22 +18,22 @@ class			AGhost : public ACharacter
     static int		_blinkyPos;
     int			_target;
     int			_idxPath;
-    aMap_t		_aMap;
-    path_t		_path;
+    astar::Map		_aMap;
+    astar::path_t	_path;
 
     void 		randomTarget();
     bool		isAtCrossway();
     int			findValidNear(const int);
   public:
-    			AGhost(const pos_t & pos,
-			       const Sptr_t<map_t> map,
+    			AGhost(const Pos & pos,
+			       const Sptr_t<Map> map,
 			       const int id,
        			       const std::string &);
     virtual		~AGhost();
 
-    void 		setAMap(const Sptr_t<map_t> map);
+    void 		setAMap(const Sptr_t<Map> map);
     int			getTarget() const;
-    path_t const	&getPath() const;
+    astar::path_t const	&getPath() const;
     void 		setPacTarget(const int);
     void 		chasePac();
     void 		updatePos();

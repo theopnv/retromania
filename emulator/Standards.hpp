@@ -54,12 +54,12 @@ enum	StateType
 */
 
 typedef int		TileID;
-typedef struct		map_s
+struct			Map
 {
   uint16_t		width;
   uint16_t		height;
   std::vector<TileID>	tiles;
-}			map_t;
+};
 
 /*
 ** Structure holding the rendering of a specific tile for each game.
@@ -67,23 +67,23 @@ typedef struct		map_s
 ** cannot, it will display it with a color.
 */
 
-typedef struct		aff_s
+struct		TileDisplay
 {
-  std::string		sprite;		/* High priority */
-  ColorType		color;		/* Low Priority */
-}			aff_t;
+  std::string	sprite;		/* High priority */
+  ColorType	color;		/* Low Priority */
+};
 
 /*
 ** Structure holding a position in the map.
 */
 
-typedef struct		pos_s
+struct	Pos
 {
-  int			y;
-  int			x;
-}			pos_t;
+  int	y;
+  int	x;
+};
 
-typedef std::map<TileID, aff_t>		conf_t;
+typedef std::map<TileID, TileDisplay>	conf_t;
 
 }
 

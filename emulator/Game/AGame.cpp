@@ -6,7 +6,7 @@ namespace retromania
 
 AGame::AGame(uint16_t const width, uint16_t const height)
 {
-  _map = std::make_shared<map_t>();
+  _map = std::make_shared<Map>();
   _map->width = width;
   _map->height = height;
 
@@ -42,7 +42,7 @@ const Score& AGame::getScore() const
   return _score;
 }
 
-const Sptr_t<map_t> AGame::getMap() const
+const Sptr_t<Map> AGame::getMap() const
 {
   return _map;
 }

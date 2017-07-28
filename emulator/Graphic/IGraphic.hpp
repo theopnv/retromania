@@ -19,10 +19,10 @@ class			IGraphic
     virtual void 	quitWindow() = 0;
     virtual void	setConfig(const Sptr_t<conf_t> config) = 0;
     virtual void	blitText(std::string const &text,
-				 retromania::pos_t const &pos,
+				 retromania::Pos const &pos,
 				 int const fontSize,
 				 ColorType const color) = 0;
-    virtual void	display(const Sptr_t<map_t> map = nullptr) = 0;
+    virtual void	display(const Sptr_t<Map> map = nullptr) = 0;
 };
 
 }

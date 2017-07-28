@@ -19,7 +19,7 @@ class				IGame
     virtual StateType		getState() const = 0;
     virtual void		start() = 0;
     virtual void		stop() = 0;
-    virtual const Sptr_t<map_t>		getMap() const = 0;
+    virtual const Sptr_t<Map>		getMap() const = 0;
     virtual const Sptr_t<conf_t>	getConfig() const = 0;
 
     virtual void		goUp() = 0;

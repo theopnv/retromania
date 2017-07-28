@@ -9,8 +9,8 @@ namespace retromania
 class			Blinky : public AGhost
 {
   public:
-			Blinky(const pos_t &pos,
-			       const Sptr_t<map_t> map,
+			Blinky(const Pos &pos,
+			       const Sptr_t<Map> map,
 			       const int id = BLINKY,
 			       const std::string &name = "Blinky");
 			~Blinky();

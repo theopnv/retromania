@@ -15,9 +15,9 @@ t_bunny_response	keyResponse(t_bunny_event_state,
 
 class			LibLapin : public AGraphic
 {
-  typedef std::map<ColorType, t_bunny_picture *>	pictureTab_t;
-  typedef std::map<t_bunny_keysym, InputType>		inputTab_t;
-  typedef std::map<int, t_bunny_picture *>		configTab_t;
+  using pictureTab_t	= std::map<ColorType, t_bunny_picture *>;
+  using inputTab_t	= std::map<t_bunny_keysym, InputType>;
+  using configTab_t	= std::map<int, t_bunny_picture *>;
 
   private:
     static const int		_FIRST_PRINTABLE;
@@ -52,12 +52,12 @@ class			LibLapin : public AGraphic
 
     virtual void	createWindow();
     virtual void 	quitWindow();
-    virtual void 	blitTile(int const, retromania::pos_t &);
+    virtual void 	blitTile(int const, retromania::Pos &);
     virtual void	blitText(std::string const &,
-				 retromania::pos_t const &,
+				 retromania::Pos const &,
 				 int const,
 				 ColorType const);
-    virtual void 	display(Sptr_t<map_t> const map = nullptr);
+    virtual void 	display(Sptr_t<Map> const map = nullptr);
 
     inputTab_t&		getInputTab();
     void 		setInput(InputType);

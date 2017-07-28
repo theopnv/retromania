@@ -1,17 +1,17 @@
 #include <algorithm>
 #include "AStar.hpp"
 
-namespace retromania
+namespace astar
 {
 
-AStar::AStar(const int pos, const int target, const aMap_t &map)
+AStar::AStar(const int pos, const int target, const Map &map)
 {
   _map = map;
   _target.x = getX(target);
   _target.y = getY(target);
 
   for (size_t i = 0; i < map.map.size(); i++) {
-    cell_t	cell;
+    Cell	cell;
 
     cell.cell.y = cell.cell.x = -1;
     cell.G = cell.H = cell.F = 0;
@@ -102,7 +102,7 @@ void 		AStar::updateArrays(const int lower)
   }
 }
 
-bool		AStar::inArray(coor_t const &dir) const
+bool		AStar::inArray(Pos const &dir) const
 {
   for (size_t i = 0; i < _map.map.size(); ++i) {
     if (dir == _close.array[i].cell) {
@@ -115,7 +115,7 @@ bool		AStar::inArray(coor_t const &dir) const
 void 		AStar::addIn()
 {
   int		i;
-  coor_t	dir[4] =
+  Pos	dir[4] =
     {
       {_close.array[_lastOut].cell.y,
        _close.array[_lastOut].cell.x - 1},
@@ -138,9 +138,9 @@ void 		AStar::addIn()
   }
 }
 
-void 		AStar::updateDistances(const coor_t dir)
+void 		AStar::updateDistances(const Pos dir)
 {
-  coor_t	H;
+  Pos	H;
 
   ++_open.idx;
   _open.array[_open.idx].cell = dir;
@@ -156,9 +156,9 @@ void 		AStar::updateDistances(const coor_t dir)
   _open.array[_open.idx].F = _open.array[_open.idx].G + _open.array[_open.idx].H;
 }
 
-AStar::cell_t	*AStar::initParent()
+AStar::Cell	*AStar::initParent()
 {
-  cell_t	*parent = new cell_t;
+  Cell	*parent = new Cell;
 
   parent->F = _close.array[_lastOut].F;
   parent->cell = _close.array[_lastOut].cell;
@@ -168,7 +168,7 @@ AStar::cell_t	*AStar::initParent()
 
 void 		AStar::flushPath()
 {
-  cell_t	*parent;
+  Cell	*parent;
 
   parent = initParent();
   while (parent != nullptr) {
@@ -177,8 +177,8 @@ void 		AStar::flushPath()
   }
 }
 
-bool		operator==(const AStar::coor_t &a,
-			   const AStar::coor_t &b)
+bool		operator==(const AStar::Pos &a,
+			   const AStar::Pos &b)
 {
   return (a.y == b.y && a.x == b.x);
 }

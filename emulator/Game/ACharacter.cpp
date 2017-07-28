@@ -2,7 +2,7 @@
 namespace retromania
 {
 
-ACharacter::ACharacter(const pos_t pos,
+ACharacter::ACharacter(const Pos pos,
 		       const int id,
 		       const std::string &name)
 {
@@ -25,12 +25,12 @@ void ACharacter::setName(const std::string &name)
   _name = name;
 }
 
-void ACharacter::setPosition(const pos_t pos)
+void ACharacter::setPosition(const Pos pos)
 {
   _pos = pos;
 }
 
-void ACharacter::setDirection(const dir_t &dir)
+void ACharacter::setDirection(const Dir &dir)
 {
   _dir = dir;
 }
@@ -45,7 +45,7 @@ std::string const & ACharacter::getName() const
   return _name;
 }
 
-ACharacter::pos_t ACharacter::getPosition() const
+ACharacter::Pos ACharacter::getPosition() const
 {
   return _pos;
 }
@@ -55,7 +55,7 @@ int ACharacter::getPositionAt(const int i) const
   return _pos.at(i);
 }
 
-ACharacter::dir_t ACharacter::getDirection() const
+ACharacter::Dir ACharacter::getDirection() const
 {
   return _dir;
 }
