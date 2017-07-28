@@ -6,10 +6,10 @@ namespace retromania
 void 		LibLapin::initColoredFonts()
 {
   if (!_fonts.size()) {
-    _fonts.insert(std::make_pair(_WHITE, openPicture("lib/liblapin/ressources/font-white.png")));
-    _fonts.insert(std::make_pair(_RED, openPicture("lib/liblapin/ressources/font-red.png")));
-    _fonts.insert(std::make_pair(_YELLOW, openPicture("lib/liblapin/ressources/font-yellow.png")));
-    _fonts.insert(std::make_pair(_BLUE, openPicture("lib/liblapin/ressources/font-blue.png")));
+    _fonts.insert(std::make_pair(_WHITE, openPicture("graphic/liblapin/ressources/font-white.png")));
+    _fonts.insert(std::make_pair(_RED, openPicture("graphic/liblapin/ressources/font-red.png")));
+    _fonts.insert(std::make_pair(_YELLOW, openPicture("graphic/liblapin/ressources/font-yellow.png")));
+    _fonts.insert(std::make_pair(_BLUE, openPicture("graphic/liblapin/ressources/font-blue.png")));
   }
 }
 

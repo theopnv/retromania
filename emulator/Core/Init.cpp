@@ -71,7 +71,7 @@ Emulator::~Emulator()
 void Emulator::setLibraries()
 {
   openLibDir<IGame>("games", _games);
-  openLibDir<IGraphic>("lib", _graphics);
+  openLibDir<IGraphic>("graphic", _graphics);
 }
 
 /*

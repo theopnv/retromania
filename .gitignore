@@ -1,5 +1,5 @@
 retro-station
-lib/lib_*
+graphic/lib_*
 games/lib_*
 
 .vscode

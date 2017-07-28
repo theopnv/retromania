@@ -22,7 +22,7 @@ For now the installation and compilation require all these libraries installed o
 
 1. Clone
 2. `$> make`
-3. `$> retro-station <path-to-the-default-library-in-lib/>`
+3. `$> retro-station <path-to-the-default-library-in-graphic/>`
 
 ## Participation
 

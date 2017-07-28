@@ -13,7 +13,7 @@ NAME		=	retromania
 
 EMULATOR_DIR	=	emulator/
 GAME_DIR	=	games/
-LIB_DIR		=	lib/
+LIB_DIR		=	graphic/
 
 all		:	$(NAME)
 
@@ -21,7 +21,7 @@ $(NAME)		:	liblapin sdl pacman nibbler libcaca exe
 			@echo -e "$(GREEN)Emulator, librairies & games built and ready !$(DEF)\n"
 
 exe		:
-			make -C ${EMULATOR_DIR}
+			make -sC ${EMULATOR_DIR}
 
 libcaca	:
 			make -sC ${LIB_DIR}libcaca

@@ -13,7 +13,7 @@ extern "C"
   }
 }
 
-const std::string	SDL::_FONT_PATH = "lib/sdl/ressources/font.ttf";
+const std::string	SDL::_FONT_PATH = "graphic/sdl/ressources/font.ttf";
 const size_t		SDL::_UNIT = 30;
 const std::string	SDL::_NAME = "SDL";
 

@@ -39,7 +39,7 @@ There are mandatory virtual functions that you have to implement. They are expla
 
 How to write a graphical library
 ----------------------
-All graphical librariries must be located in the `lib/` folder.
+All graphical librariries must be located in the `graphic/` folder.
 
 There are mandatory virtual functions that you have to implement. They are explained in detail in the IGraphic markdown documentation file.
 
