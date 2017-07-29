@@ -1,5 +1,9 @@
 #include <fstream>
+#include <dirent.h>
+#include <cstring>
+#include <algorithm>
 #include "AGame.hpp"
+#include "JsonParser.hpp"
 
 namespace retromania
 {
@@ -83,6 +87,41 @@ void AGame::changeConfig()
       _config = _vconfigs[_current_config];
       _state = TRANSFORM;
     }
+}
+
+void AGame::setConfig()
+{
+  Sptr_t<JsonParser>		JParser;
+  DIR				*dir;
+  struct dirent			*curr;
+  std::string			tmp;
+  std::vector<std::string>	files;
+  const std::string		path = getConfigPath();
+
+  if (!(dir = opendir(path.c_str()))) {
+    std::cout << strerror(errno) << std::endl;
+  }
+  while ((curr = readdir(dir)) != NULL) {
+    tmp = curr->d_name;
+    if (!(tmp.find(".json") == std::string::npos || tmp.find(".json") != tmp.size() - 5))
+      files.push_back((std::string) curr->d_name);
+    }
+  closedir(dir);
+  std::sort(files.begin(), files.end(), [](std::string const &a, std::string const &b) -> bool
+  {
+    return a < b;
+  });
+
+  for (auto& it : files) {
+    JParser = std::make_shared<JsonParser>(path + "/" + it);
+    _vconfigs.push_back(JParser->getConfig(_tileIDs));
+  }
+  if (_vconfigs.size() == 0) {
+    std::cerr << "CRITICAL ERROR: No nibbler config available!" << std::endl;
+    exit(FAILURE);
+  }
+  _config = *_vconfigs.begin();
+  _current_config = 0;
 }
 
 }

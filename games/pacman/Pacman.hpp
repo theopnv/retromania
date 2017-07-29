@@ -22,6 +22,7 @@ class			Pacman : public AGame
   private:
     static const std::string	_MAP_PATH;
     static const std::string	_NAME;
+    static const std::string	_CONFIG_PATH;
 
     boolTab_t		_aMap;
     ACharacter::Dir	_pacNextDirection;
@@ -31,7 +32,6 @@ class			Pacman : public AGame
     int			_totalGoms;
     ennemiesTab_t	_ennemies;
 
-    void 		setConfig();
     void 		setDirection();
     void 		chooseNextDir();
     void 		renderHero();
@@ -45,6 +45,7 @@ class			Pacman : public AGame
     void 		eatGoms();
     void 		manageGhosts();
     void 		renderGhost(Sptr_t<AGhost>);
+    virtual const std::string&	getConfigPath() const;
   public:
 			Pacman(uint16_t const width = 29,
 			       uint16_t const height = 31);

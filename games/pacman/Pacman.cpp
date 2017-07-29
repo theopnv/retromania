@@ -15,6 +15,7 @@ extern "C"
 }
 
 const std::string	Pacman::_MAP_PATH	= "games/pacman/ressources/maps/basic.txt";
+const std::string	Pacman::_CONFIG_PATH	= "games/pacman/ressources/configs";
 const std::string	Pacman::_NAME		= "Pacman";
 
 Pacman::Pacman(uint16_t const width, uint16_t const height)

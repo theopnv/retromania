@@ -14,6 +14,7 @@ extern "C"
 
 const std::string	Nibbler::_MAP_PATH = "games/nibbler/ressources/maps/basic.txt";
 const std::string	Nibbler::_SPRITE_MAZE = "games/nibbler/ressources/sprites/maze30x30.png";
+const std::string	Nibbler::_CONFIG_PATH = "games/nibbler/ressources/configs";
 const std::string	Nibbler::_NAME = "Nibbler";
 
 

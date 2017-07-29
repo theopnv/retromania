@@ -32,6 +32,7 @@ class				AGame : public IGame
     uint16_t			getY(uint16_t const) const;
     void			loadMap(std::string const &);
     void 			changeConfig();
+    virtual const std::string&	getConfigPath() const = 0;
     virtual void		moveUp() = 0;
     virtual void		moveDown() = 0;
     virtual void		moveLeft() = 0;
@@ -40,6 +41,7 @@ class				AGame : public IGame
   public:
 				AGame(uint16_t const, uint16_t const);
 				~AGame();
+    void 			setConfig();
     virtual const Score&	getScore() const;
     virtual StateType		getState() const;
     virtual void		goUp();
@@ -49,6 +51,7 @@ class				AGame : public IGame
     virtual void 		goForward();
     virtual const Sptr_t<Map> 	getMap() const;
     virtual const Sptr_t<conf_t>	getConfig() const;
+
 };
 }
 #endif				/* !AGAME_H */
