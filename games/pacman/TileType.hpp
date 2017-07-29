@@ -16,5 +16,7 @@ enum 		CellType
   CLYDE,
   GOM
 };
+
 }
+
 #endif		/* TILE_TYPES_H */

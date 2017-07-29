@@ -1,0 +1,21 @@
+WALL
+	0:games/pacman/ressources/sprites/star-wars/wall.png
+	1:BLACK
+PACMAN
+	0:games/pacman/ressources/sprites/star-wars/r2d2.png
+	1:YELLOW
+BLINKY
+	0:games/pacman/ressources/sprites/star-wars/vader.png
+	1:RED
+INKY
+	0:games/pacman/ressources/sprites/star-wars/ren.png
+	1:CYAN
+PINKY
+	0:games/pacman/ressources/sprites/star-wars/fett.png
+	1:PINK
+CLYDE
+	0:games/pacman/ressources/sprites/star-wars/stormtrooper.png
+	1:ORANGE
+GOM
+	0:games/pacman/ressources/sprites/star-wars/gom.png
+	1:GREY

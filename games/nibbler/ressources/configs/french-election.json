@@ -1,0 +1,9 @@
+WALL
+	0:games/nibbler/ressources/sprites/french-election/wall.png
+	1:WHITE
+SNAKE
+	0:games/nibbler/ressources/sprites/french-election/melanchon.png
+	1:RED
+FRUIT
+	0:games/nibbler/ressources/sprites/french-election/lepen.png
+	1:BLUE

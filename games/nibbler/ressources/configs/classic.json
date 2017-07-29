@@ -1,9 +1,9 @@
 WALL
-	0:games/nibbler/ressources/sprites/box.png
+	0:games/nibbler/ressources/sprites/classic/wall.png
 	1:WHITE
 SNAKE
-	0:games/nibbler/ressources/sprites/snake.png
+	0:games/nibbler/ressources/sprites/classic/snake.png
 	1:GREEN
 FRUIT
-	0:games/nibbler/ressources/sprites/fruit.png
+	0:games/nibbler/ressources/sprites/classic/fruit.png
 	1:RED

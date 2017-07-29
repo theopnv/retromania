@@ -22,7 +22,7 @@ class				AGame : public IGame
     Sptr_t<conf_t>		_config;
     std::vector<Sptr_t<conf_t>> _vconfigs;
     int				_current_config;
-    Sptr_t<Map>		_map;
+    Sptr_t<Map>			_map;
     Score			_score;
     Sptr_t<ACharacter>		_hero;
     StateType			_state;

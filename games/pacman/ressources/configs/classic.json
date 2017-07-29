@@ -1,21 +1,21 @@
 WALL
-	0:games/pacman/ressources/sprites/wall.png
+	0:games/pacman/ressources/sprites/classic/wall.png
 	1:BLUE
 PACMAN
-	0:games/pacman/ressources/sprites/pacman.png
+	0:games/pacman/ressources/sprites/classic/pacman.png
 	1:YELLOW
 BLINKY
-	0:games/pacman/ressources/sprites/blinky.png
+	0:games/pacman/ressources/sprites/classic/blinky.png
 	1:RED
 INKY
-	0:games/pacman/ressources/sprites/inky.png
+	0:games/pacman/ressources/sprites/classic/inky.png
 	1:CYAN
 PINKY
-	0:games/pacman/ressources/sprites/pinky.png
+	0:games/pacman/ressources/sprites/classic/pinky.png
 	1:PINK
 CLYDE
-	0:games/pacman/ressources/sprites/clyde.png
+	0:games/pacman/ressources/sprites/classic/clyde.png
 	1:ORANGE
 GOM
-	0:games/pacman/ressources/sprites/gom.png
+	0:games/pacman/ressources/sprites/classic/gom.png
 	1:GREY
