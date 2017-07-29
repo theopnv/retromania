@@ -29,7 +29,9 @@ COMMON_SRC	=	${EMULATOR_DIR}Game/AGame.cpp		\
 SRCS		=	$(COMMON_SRC)				\
 			Nibbler.cpp				\
 			Move.cpp				\
-			Init.cpp
+			Init.cpp				\
+			Accessor.cpp				\
+			Fruit.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 all		:	$(NAME)
