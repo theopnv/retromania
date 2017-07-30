@@ -17,6 +17,7 @@ INC		=	-I${EMULATOR_DIR}Game/			\
 			-I${EMULATOR_DIR}JsonParser/		\
 			-I${EMULATOR_DIR}FileHandler/		\
 			-I${EMULATOR_DIR}Score/			\
+			-I${EMULATOR_DIR}Exception/		\
 			-I${EMULATOR_DIR}			\
 			-I${ASDIR}				\
 			-I${GDIR}				\

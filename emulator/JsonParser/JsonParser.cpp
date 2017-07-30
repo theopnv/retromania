@@ -15,10 +15,10 @@ JsonParser::~JsonParser()
 
 const Sptr_t<conf_t> JsonParser::getConfig(AGame::tileIDTab_t &grammar)
 {
-  std::string	line;
+  std::string		line;
   TileDisplay		aff;
-  TileID	tileID = 0;
-  size_t	tileCompleted = 0;
+  TileID		tileID = 0;
+  size_t		tileCompleted = 0;
   Sptr_t<conf_t>	config = std::make_shared<conf_t>();
 
   do {

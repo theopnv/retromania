@@ -8,6 +8,8 @@
 namespace retromania
 {
 
+using namespace fileHandler;
+
 class			JsonParser
 {
   using colorTab_t	= std::unordered_map<std::string, ColorType>;

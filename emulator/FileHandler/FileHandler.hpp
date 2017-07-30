@@ -2,19 +2,14 @@
 # define		FILE_HANDLER_H
 
 # include		<fstream>
+# include		"FileHandlerException.hpp"
 
-/*
-** FileHandler class
-**
-** Constructor:		@param path/to/file
-**			@param error message
-**
-** getPath()		@return file path.
-** getLine()		@return next line of the file.
-*/
-namespace retromania
+namespace fileHandler
 {
 
+/*
+** Handles operations relative to files : openning, reading, closing
+*/
 class			FileHandler
 {
   private:

@@ -4,7 +4,7 @@
 /*
 ** META
 */
-namespace retromania
+namespace fileHandler
 {
 
 FileHandler::FileHandler(const std::string & path, const std::string & strerr)

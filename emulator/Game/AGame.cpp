@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "AGame.hpp"
 #include "JsonParser.hpp"
+#include "FileHandler.hpp"
 
 namespace retromania
 {
@@ -58,22 +59,16 @@ StateType AGame::getState() const
 
 void AGame::loadMap(std::string const &path)
 {
-  std::ifstream		f;
+  FileHandler		fileHandler(path.c_str());
   std::string		line;
 
-  f.open(path.c_str());
-  if (!f.good()) {
-    std::cerr << "Can't open map located at " << path << std::endl;
-    return;
-  }
-
   _map->tiles.clear();
-  while (getline(f, line)) {
+  do {
+    line = fileHandler.getLine();
     for (unsigned int i = 0; i < line.size(); i++) {
       _map->tiles.push_back(line[i] - '0');
     }
-  }
-  f.close();
+  } while (line.size());
 }
 
 void AGame::changeConfig()

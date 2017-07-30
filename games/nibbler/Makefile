@@ -13,10 +13,11 @@ NAME		=	../lib_nibbler.so
 CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) -g
 LFLAGS		=	-fpic -shared
 INC		=	-I${EMULATOR_DIR}Game/			\
-			-I${EMULATOR_DIR}Graphic/			\
+			-I${EMULATOR_DIR}Graphic/		\
 			-I${EMULATOR_DIR}JsonParser/		\
 			-I${EMULATOR_DIR}FileHandler/		\
 			-I${EMULATOR_DIR}Score/			\
+			-I${EMULATOR_DIR}Exception/		\
 			-I${EMULATOR_DIR}
 
 COMMON_SRC	=	${EMULATOR_DIR}Game/AGame.cpp		\
