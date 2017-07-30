@@ -7,7 +7,7 @@
 namespace		exception
 {
 
-class			ProgException
+class			ProgException : public std::exception
 {
   private:
     std::string		_message;

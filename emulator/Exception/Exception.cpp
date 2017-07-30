@@ -19,7 +19,7 @@ ProgException::~ProgException() throw()
 
 const char *ProgException::what() const throw()
 {
-  return _message.data();
+  return _message.c_str();
 }
 
 }

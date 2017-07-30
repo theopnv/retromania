@@ -20,7 +20,6 @@ class			DLLoader
     void		*_handle;
     Sptr_t<T>		_dynLib;
     std::string		_entryPoint;
-    void		getErr(const char *err);
 
   public:
 			DLLoader(std::string const &entryPoint = "entryPoint");
