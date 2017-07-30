@@ -8,24 +8,33 @@ CC		=	g++
 RM		=	rm -rf
 NAME		=	../retro-station
 CPPFLAGS	=	-W -Wall -Wextra -Werror -std=c++14 $(INC) -ldl -g
-INC		=	-IGraphic -IGame 		\
-			-ICore				\
-			-IDLLoader -IFileHandler	\
-			-IJsonParser	-IScore		\
+INC		=	-IGraphic			\
+			-IGame 				\
+			-I${DIR}			\
+			-I${DLLOADER_DIR}		\
+			-I${FILEHANDLER_DIR}		\
+			-I${JSON_PARSER_DIR}		\
+			-I${SCORE_DIR}			\
+			-I${EXCEPTION_DIR}		\
 			-I.
 
 DLLOADER_DIR	=	DLLoader/
 FILEHANDLER_DIR	=	FileHandler/
 JSON_PARSER_DIR	=	JsonParser/
+EXCEPTION_DIR	=	Exception/
 SCORE_DIR	=	Score/
 DIR		=	Core/
 OBJS		=	$(SRCS:.cpp=.o)
 
 SRCS		=	main.cpp				\
 								\
+			${EXCEPTION_DIR}Exception.cpp		\
+								\
 			${DLLOADER_DIR}DLLoader.cpp		\
+			${DLLOADER_DIR}DLLoaderException.cpp	\
 								\
 			${FILEHANDLER_DIR}FileHandler.cpp	\
+			${FILEHANDLER_DIR}FileHandlerException.cpp	\
 								\
 			${JSON_PARSER_DIR}JsonParser.cpp	\
 								\

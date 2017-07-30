@@ -5,7 +5,14 @@ namespace retromania
 
 JsonParser::JsonParser(std::string const &path)
 {
-  _fileHandler = std::make_shared<FileHandler>(path);
+  _fileHandler.setPath(path);
+  _fileHandler.setType(FileHandler::Type::FILE);
+  try {
+    _fileHandler.open();
+  } catch (std::exception& e) {
+    std::cerr << e.what() << std::endl;
+    return;
+  }
   initColors();
 }
 
@@ -15,14 +22,14 @@ JsonParser::~JsonParser()
 
 const Sptr_t<conf_t> JsonParser::getConfig(AGame::tileIDTab_t &grammar)
 {
-  std::string	line;
+  std::string		line;
   TileDisplay		aff;
-  TileID	tileID = 0;
-  size_t	tileCompleted = 0;
+  TileID		tileID = 0;
+  size_t		tileCompleted = 0;
   Sptr_t<conf_t>	config = std::make_shared<conf_t>();
 
   do {
-    line = _fileHandler->getLine();
+    line = _fileHandler.getLine();
 
     char	front = line.front();
     if (isalpha(front)) {

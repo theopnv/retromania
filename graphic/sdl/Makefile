@@ -33,7 +33,7 @@ all		:	$(NAME)
 $(NAME)		:	$(OBJS)
 			@echo -e "Building SDL library"
 			$(CC) $(LFLAGS) $(CPPFLAGS) $(SRCS) -o $(NAME)
-			@echo -e "$(GREEN)SDL library created in lib/\n$(DEF)"
+			@echo -e "$(GREEN)SDL library created in graphic/\n$(DEF)"
 
 clean		:
 			$(RM) $(OBJS)

@@ -28,20 +28,31 @@ void Emulator::nextGraphic()
 
 void Emulator::prevGame()
 {
+  int	saveIdx = _idxGame;
   --_idxGame;
   if (_idxGame < 0) {
     _idxGame = _games.size() - 1;
   }
-  switchLibrary<IGame>(_idxGame);
+  try {
+    switchLibrary<IGame>(_idxGame);
+  } catch (std::exception& e) {
+    _idxGame = saveIdx;
+  }
 }
 
 void Emulator::nextGame()
 {
+  int	saveIdx = _idxGame;
+
   ++_idxGame;
   if ((size_t)_idxGame >= _games.size()) {
     _idxGame = 0;
   }
-  switchLibrary<IGame>(_idxGame);
+  try {
+    switchLibrary<IGame>(_idxGame);
+  } catch (std::exception& e) {
+    _idxGame = saveIdx;
+  }
 }
 
 void Emulator::restartGame()

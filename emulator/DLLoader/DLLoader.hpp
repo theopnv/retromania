@@ -4,6 +4,7 @@
 # include		<iostream>
 # include		<dlfcn.h>
 # include		<memory>
+# include		"DLLoaderException.hpp"
 
 template <class T>
 using Sptr_t		= std::shared_ptr<T>;
@@ -19,13 +20,12 @@ class			DLLoader
     void		*_handle;
     Sptr_t<T>		_dynLib;
     std::string		_entryPoint;
-    void		*getErr(const char *err);
 
   public:
 			DLLoader(std::string const &entryPoint = "entryPoint");
 			~DLLoader();
     Sptr_t<T>		getInstance(std::string const &dynLib);
-    void		*closeInstance();
+    void		closeInstance();
     static bool		isDSOFile(std::string const &path);
 };
 

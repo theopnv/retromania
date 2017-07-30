@@ -14,13 +14,6 @@ DLLoader<T>::~DLLoader()
 }
 
 template <class T>
-void *DLLoader<T>::getErr(const char *err)
-{
-  std::cerr << err << std::endl;
-  return nullptr;
-}
-
-template <class T>
 Sptr_t<T> DLLoader<T>::getInstance(std::string const &dynLib)
 {
   Sptr_t<T>	(*accessClass)();
@@ -28,20 +21,18 @@ Sptr_t<T> DLLoader<T>::getInstance(std::string const &dynLib)
   if (!(_handle = dlopen(dynLib.c_str(), RTLD_NOW | RTLD_LAZY))
       || !(accessClass = reinterpret_cast<Sptr_t<T> (*)()>
 			 (dlsym(_handle, _entryPoint.c_str())))) {
-    getErr(dlerror());
-    throw std::exception();
+    throw exception::DLLoaderException(dlerror());
   }
   _dynLib = accessClass();
   return _dynLib;
 }
 
 template <class T>
-void	*DLLoader<T>::closeInstance()
+void	DLLoader<T>::closeInstance()
 {
   if (dlclose(_handle) != 0) {
-    return (getErr(dlerror()));
+    throw exception::DLLoaderException(dlerror());
   }
-  return nullptr;
 }
 
 template <class T>

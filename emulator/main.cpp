@@ -12,7 +12,7 @@ void		usage(char *bin)
 	    << "Enter a fabulous revival of the 80's through this retro game emulator !"
 	    << std::endl
 	    << "There must be compatible (.so files) games and graphical librairies,"
-	    << " respectively in .games and .lib directories."
+	    << " respectively in games/ and graphic/ directories."
 	    << std::endl;
 }
 

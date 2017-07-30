@@ -36,7 +36,7 @@ all		:	$(NAME)
 $(NAME)		:	$(OBJS)
 			@echo -e "Building LibLapin library"
 			$(CC) $(CPPFLAGS) $(SRCS) $(LIBLAPIN_FLAGS) $(LFLAGS) -o $(NAME)
-			@echo -e "$(GREEN)LibLapin library created in lib/\n$(DEF)"
+			@echo -e "$(GREEN)LibLapin library created in graphic/\n$(DEF)"
 
 clean		:
 			$(RM) $(OBJS)

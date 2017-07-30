@@ -48,7 +48,11 @@ void Nibbler::start()
 {
   _state = ON;
   _lastDirection = ACharacter::RIGHT;
-  loadMap(_MAP_PATH);
+  try {
+    loadMap(_MAP_PATH);
+  } catch (std::exception& e) {
+    throw;
+  }
   initCharacter();
   initFruits();
 }

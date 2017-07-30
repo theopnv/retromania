@@ -4,16 +4,14 @@
 /*
 ** META
 */
-namespace retromania
+namespace fileHandler
 {
 
-FileHandler::FileHandler(const std::string & path, const std::string & strerr)
+FileHandler::FileHandler(const std::string& path, const Type& type) :
+	_path(path),
+	_type(type),
+	_directory(NULL)
 {
-  _file.open(path.c_str(), std::ios::in|std::ios::out);
-  if (!_file.good()) {
-    std::cerr << strerr << std::endl;
-  }
-  _path = path;
 }
 
 FileHandler::~FileHandler()
@@ -21,22 +19,50 @@ FileHandler::~FileHandler()
   if (_file.is_open()) {
     _file.close();
   }
+
+  if (_directory) {
+    closedir(_directory);
+  }
 }
 
 /*
-** GETTERS
+** ACCESSORS
 */
 
-std::string const &	FileHandler::getPath() const
+const std::string& FileHandler::getPath() const
 {
   return _path;
+}
+
+void FileHandler::setPath(const std::string& path)
+{
+  _path = path;
+}
+
+void FileHandler::setType(const Type& type)
+{
+  _type = type;
 }
 
 /*
 ** MEMBER FUNCTIONS
 */
 
-std::string		FileHandler::getLine(const char delim)
+void FileHandler::open()
+{
+  if (_type == FILE) {
+    _file.open(_path.c_str(), std::ios::in|std::ios::out);
+    if (!_file.good()) {
+      throw exception::FileHandlerException("Can't open " + _path);
+    }
+  } else if (_type == DIR) {
+    if (!(_directory = opendir(_path.c_str()))) {
+      throw exception::FileHandlerException("Can't open " + _path);
+    }
+  }
+}
+
+std::string FileHandler::getLine(const char delim)
 {
   std::string		line("");
   char			c;
@@ -50,7 +76,23 @@ std::string		FileHandler::getLine(const char delim)
 	break;
       }
     }
+  } else {
+    throw exception::FileHandlerException("File wasn't open. Please Report this bug.");
   }
   return line;
 }
+
+std::string FileHandler::getCurrFileName()
+{
+  if (_directory) {
+    if ((_currFileInDir = readdir(_directory))) {
+      return (std::string)_currFileInDir->d_name;
+    }
+  } else {
+    throw exception::FileHandlerException("Directory wasn't open. Please report this bug.");
+  }
+
+  return "";
+}
+
 }
