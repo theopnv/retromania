@@ -10,18 +10,18 @@ namespace retromania
 
 using namespace fileHandler;
 
-class			JsonParser
+class				JsonParser
 {
   using colorTab_t	= std::unordered_map<std::string, ColorType>;
 
   private:
-    Sptr_t<FileHandler>	_fileHandler;
-    colorTab_t		_colors;
+    FileHandler			_fileHandler;
+    colorTab_t			_colors;
 
-    void 		initColors();
+    void 			initColors();
   public:
-			JsonParser(std::string const &path);
-			~JsonParser();
+				JsonParser(std::string const &path);
+				~JsonParser();
     const Sptr_t<conf_t>	getConfig(AGame::tileIDTab_t &grammar);
 };
 

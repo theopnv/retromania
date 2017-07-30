@@ -5,9 +5,10 @@ namespace retromania
 
 JsonParser::JsonParser(std::string const &path)
 {
+  _fileHandler.setPath(path);
+  _fileHandler.setType(FileHandler::Type::FILE);
   try {
-    _fileHandler = std::make_shared<FileHandler>(path, FileHandler::Type::FILE);
-    _fileHandler->open();
+    _fileHandler.open();
   } catch (std::exception& e) {
     std::cerr << e.what() << std::endl;
     return;
@@ -28,7 +29,7 @@ const Sptr_t<conf_t> JsonParser::getConfig(AGame::tileIDTab_t &grammar)
   Sptr_t<conf_t>	config = std::make_shared<conf_t>();
 
   do {
-    line = _fileHandler->getLine();
+    line = _fileHandler.getLine();
 
     char	front = line.front();
     if (isalpha(front)) {

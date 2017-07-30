@@ -95,7 +95,6 @@ void AGame::changeConfig()
 
 void AGame::setConfig()
 {
-  Sptr_t<JsonParser>		JParser;
   fileHandler::FileHandler	fH;
   std::string			fileName;
   std::vector<std::string>	files;
@@ -129,8 +128,8 @@ void AGame::setConfig()
   });
 
   for (auto& it : files) {
-    JParser = std::make_shared<JsonParser>(path + "/" + it);
-    _vconfigs.push_back(JParser->getConfig(_tileIDs));
+    JsonParser	JParser(path + "/" + it);
+    _vconfigs.push_back(JParser.getConfig(_tileIDs));
   }
   if (_vconfigs.size() == 0) {
     throw std::runtime_error("No configuration file available. Please put one in the ressources/config/ directory.");
