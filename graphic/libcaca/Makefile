@@ -31,7 +31,7 @@ all		:	$(NAME)
 $(NAME)		:	$(OBJS)
 			@echo -e "Building LibCaca library"
 			$(CC) $(LFLAGS) $(SRCS) $(CPPFLAGS) -o $(NAME)
-			@echo -e "$(GREEN)Library LibCaca created in lib/\n$(DEF)"
+			@echo -e "$(GREEN)Library LibCaca created in graphic/\n$(DEF)"
 
 clean		:
 			$(RM) $(OBJS)

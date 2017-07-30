@@ -1,6 +1,4 @@
 #include <fstream>
-#include <dirent.h>
-#include <cstring>
 #include <algorithm>
 #include "AGame.hpp"
 #include "JsonParser.hpp"
@@ -59,12 +57,23 @@ StateType AGame::getState() const
 
 void AGame::loadMap(std::string const &path)
 {
-  FileHandler		fileHandler(path.c_str());
-  std::string		line;
+  std::string			line;
+  fileHandler::FileHandler	fH(path.c_str(), fileHandler::FileHandler::Type::FILE);
+
+  try {
+    fH.open();
+  } catch (std::exception& e) {
+    std::cerr << "Can't load map (" << path << "). Exiting game" << std::endl;
+    throw;
+  }
 
   _map->tiles.clear();
   do {
-    line = fileHandler.getLine();
+    try {
+      line = fH.getLine();
+    } catch (std::exception& e) {
+      std::cerr << e.what() << std::endl;
+    }
     for (unsigned int i = 0; i < line.size(); i++) {
       _map->tiles.push_back(line[i] - '0');
     }
@@ -87,21 +96,33 @@ void AGame::changeConfig()
 void AGame::setConfig()
 {
   Sptr_t<JsonParser>		JParser;
-  DIR				*dir;
-  struct dirent			*curr;
-  std::string			tmp;
+  fileHandler::FileHandler	fH;
+  std::string			fileName;
   std::vector<std::string>	files;
   const std::string		path = getConfigPath();
 
-  if (!(dir = opendir(path.c_str()))) {
-    std::cout << strerror(errno) << std::endl;
+  /* Open config dir */
+  fH.setPath(path);
+  fH.setType(fileHandler::FileHandler::Type::DIR);
+  try {
+    fH.open();
+  } catch (std::exception& e) {
+    std::cerr << e.what() << std::endl;
   }
-  while ((curr = readdir(dir)) != NULL) {
-    tmp = curr->d_name;
-    if (!(tmp.find(".json") == std::string::npos || tmp.find(".json") != tmp.size() - 5))
-      files.push_back((std::string) curr->d_name);
+
+  /* List files in config dir */
+  do {
+    try {
+      fileName = fH.getCurrFileName();
+    } catch (std::exception& e) {
+      std::cerr << e.what() << std::endl;
     }
-  closedir(dir);
+    if (!(fileName.find(".json") == std::string::npos
+	|| fileName.find(".json") != fileName.size() - 5)) {
+      files.push_back(fileName);
+    }
+  } while (fileName != "");
+
   std::sort(files.begin(), files.end(), [](std::string const &a, std::string const &b) -> bool
   {
     return a < b;
@@ -112,8 +133,7 @@ void AGame::setConfig()
     _vconfigs.push_back(JParser->getConfig(_tileIDs));
   }
   if (_vconfigs.size() == 0) {
-    std::cerr << "CRITICAL ERROR: No nibbler config available!" << std::endl;
-    exit(FAILURE);
+    throw std::runtime_error("No configuration file available. Please put one in the ressources/config/ directory.");
   }
   _config = *_vconfigs.begin();
   _current_config = 0;

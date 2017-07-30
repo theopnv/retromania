@@ -34,7 +34,12 @@ void	Pacman::play()
   if (_state == TRANSFORM) {
     _state = ON;
   }
-  _map->tiles.at(_hero->getPositionAt(0)) = EMPTY;
+  try {
+    _map->tiles.at(_hero->getPositionAt(0)) = EMPTY;
+  } catch (std::exception& e) {
+    std::cerr << e.what() << ". Exiting program" << std::endl;
+    exit(42);
+  }
   changeConfig();
   chooseNextDir();
   setDirection();

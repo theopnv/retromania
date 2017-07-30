@@ -23,11 +23,13 @@ INC		=	-I${EMULATOR_DIR}Game/			\
 			-I${GDIR}				\
 			-I./
 
-COMMON_SRC	=	${EMULATOR_DIR}Game/AGame.cpp		\
-			${EMULATOR_DIR}Game/Actions.cpp		\
+COMMON_SRC	=	${EMULATOR_DIR}Exception/Exception.cpp		\
+			${EMULATOR_DIR}Game/AGame.cpp			\
+			${EMULATOR_DIR}Game/Actions.cpp			\
 			${EMULATOR_DIR}Game/ACharacter.cpp		\
 			${EMULATOR_DIR}JsonParser/JsonParser.cpp	\
 			${EMULATOR_DIR}FileHandler/FileHandler.cpp	\
+			${EMULATOR_DIR}FileHandler/FileHandlerException.cpp	\
 			${EMULATOR_DIR}Score/Score.cpp
 
 GDIR		=	Ghost/

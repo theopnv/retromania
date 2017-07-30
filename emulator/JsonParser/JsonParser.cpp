@@ -5,7 +5,13 @@ namespace retromania
 
 JsonParser::JsonParser(std::string const &path)
 {
-  _fileHandler = std::make_shared<FileHandler>(path);
+  try {
+    _fileHandler = std::make_shared<FileHandler>(path, FileHandler::Type::FILE);
+    _fileHandler->open();
+  } catch (std::exception& e) {
+    std::cerr << e.what() << std::endl;
+    return;
+  }
   initColors();
 }
 

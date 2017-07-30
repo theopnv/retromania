@@ -151,10 +151,10 @@ void Emulator::switchLibrary<IGraphic>(const int idx)
 template<>
 void Emulator::switchLibrary<IGame>(const int idx)
 {
+  _games[idx].lib->start();
   _idxGame = idx;
   _currGame = _games[_idxGame].lib;
   _inMenu = false;
-  _currGame->start();
   _currGraphic->setConfig(_currGame->getConfig());
   _currGameState = ON;
 }

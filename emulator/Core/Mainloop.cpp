@@ -56,7 +56,11 @@ void Emulator::mainloop()
     _input = _currGraphic->getInput();
     if (_inMenu) {
       affMenu();
-      chooseLib();
+      try {
+	chooseLib();
+      } catch (std::exception& e) {
+	continue;
+      }
       _currGraphic->display();
     } else {
       _currGame->setInput(_input);
@@ -64,7 +68,11 @@ void Emulator::mainloop()
       _currGameState = _currGame->getState();
       _currGraphic->display(_currGame->getMap());
       if (_currGameState == TRANSFORM) {
-	_currGraphic->setConfig(_currGame->getConfig());
+	try {
+	  _currGraphic->setConfig(_currGame->getConfig());
+	} catch (std::runtime_error& e) {
+	  std::cerr << e.what() << std::endl;
+	}
       }
       if (_currGameState == OFF) {
 	saveScore();
