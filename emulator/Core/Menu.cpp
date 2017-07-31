@@ -5,7 +5,11 @@ namespace retromania
 
 void Emulator::leaveEmulator()
 {
-  _leaveEmulator = true;
+  if (!_inMenu) {
+    backToMenu();
+  } else {
+    _leaveEmulator = true;
+  }
 }
 
 void Emulator::prevGraphic()

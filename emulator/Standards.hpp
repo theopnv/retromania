@@ -46,7 +46,7 @@ enum	StateType
   ON,
   WIN,
   LOST,
-    TRANSFORM
+  TRANSFORM
 };
 
 /*
